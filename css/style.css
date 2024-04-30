@@ -8,11 +8,15 @@
 
 body {
     height: 100vh;
+    width: 100vw;
+    background-color: var(--color-primario);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 header {
-    height: 12vh;
-    background-color: rgb(226, 226, 226);
+    height: 15%;
     font-weight: bold;
     font-size: 30px;
     display: flex;
@@ -20,9 +24,14 @@ header {
     align-items: center;
 }
 
+header h4 {
+    color: var(--color-cuarto);
+}
+
 main {
     display: flex;
-    height: 70vh;
+    min-height: 80%;
+    height: auto;
     width: 100%;
     flex-direction: row;
 }
@@ -30,20 +39,32 @@ main {
 
 
 nav, article {
-    background-color: rgb(202, 202, 202);
     display: flex;
     flex-direction: column;
-    flex: 1;
 }
 
 article {
     justify-content: center;
+}
+
+.leftpart {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    overflow: hidden;
+    max-width: 80%;
 }
 
 .leftbox {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -51,6 +72,18 @@ article {
     font-size: 40px;
 }
 
+
+.leftboxcontent {
+    padding-left: 10px;
+}
+
+.leftboxcontent h4 {
+    color: var(--color-secundario);
+}
+
+.leftboxcontent p {
+    color: var(--color-terciario);
+}
 
 aside {
     align-items: center;
@@ -91,5 +124,7 @@ footer {
     background-color: gray;
     justify-content: center;
     align-items: center;
-    height: 20vh;
+    min-height: 10%;
+    height: auto;
+    
 }
