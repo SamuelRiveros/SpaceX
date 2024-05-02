@@ -92,28 +92,30 @@ aside {
     display: flex;
     flex-wrap: wrap;
     flex-flow: column;
-    width: 70em;
+    width: 60%;
 }
 
 .rightpart {
     height: 100%;
-    width: 15%;
+    width: 20%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .right {
     display: flex;
-    justify-content: center;
-    gap: 50px;
+    width: 100%;
+    gap: 30px;
     overflow: hidden;
-    max-width: 80%;
 }
 
 .rightbox {
     display: flex;
     flex-direction: column;
+}
+
+.rightbox p {
+    color: var(--color-cuarto);
 }
 
 .progressp {
@@ -123,20 +125,88 @@ aside {
 }
 
 .progressp h3 {
+    color: var(--color-cuarto);
     padding-left: 10px;
 }
 
-.progress {
+progress {
     width: 80%;
-    height: 1.5em;
 }
 
 footer {
     display: flex;
-    background-color: gray;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-around;
     align-items: center;
-    min-height: 10%;
     height: auto;
     
+}
+
+.footerleft {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+}
+
+.downleftcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.systemsdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    width: 150px;
+    background-color: var(--color-cuarto);
+    border-radius: 5px;
+}
+
+.systemsdiv p {
+    color: var(--color-primario);
+    font-weight: bold;
+}
+
+.cabindiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    outline: white solid;
+    outline-width: 1px;
+    border-radius: 5px;
+}
+
+.cabindiv p {
+    color: var(--color-cuarto);
+    font-weight: bold;
+}
+
+.footercenter {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 60%;
+}
+
+.centericon {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 40px;
+}
+
+.centericon p {
+    color: var(--color-secundario);
+}
+
+.footerright {
+    display: flex;
+    justify-content: center;
+    width: 20%;
 }
