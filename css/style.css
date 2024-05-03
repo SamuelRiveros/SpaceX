@@ -15,6 +15,14 @@ body {
     justify-content: space-between;
 }
 
+#container3D canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
 header {
     height: 15%;
     font-weight: bold;
@@ -88,7 +96,6 @@ article {
 aside {
     align-items: center;
     padding-left: 0px ;
-    background-color: rgb(161, 161, 161);
     display: flex;
     flex-wrap: wrap;
     flex-flow: column;
@@ -141,6 +148,16 @@ footer {
     height: auto;
     
 }
+
+.footercontainer {
+    display: flex;
+    width: 55%;
+    height: 100px;
+    position: absolute;
+    bottom: 0px;
+    z-index: -1;
+}
+
 
 .footerleft {
     display: flex;
