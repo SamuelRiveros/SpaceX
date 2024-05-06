@@ -1,4 +1,4 @@
-export const informationRockets = async(country, description)=>{
+/*export const informationRockets = async(country, description)=>{
     let div = document.createElement('div');
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
@@ -115,4 +115,4 @@ export const informationWebRocket = async(wikipedia)=>{
     //         <a href="#" target="_blank">Lorem</a>
     //     </div>
     // </div>
-}
+}*/
