@@ -320,6 +320,17 @@ footer {
     width: 150px;
     background-color: var(--color-cuarto);
     border-radius: 5px;
+    transition: 0.5s ease;
+}
+
+.systemsdiv:hover{
+    cursor: pointer;
+    scale: 1.1;
+    background-color: var(--color-primario);
+}
+
+.systemsdiv:hover p {
+    color: #fff;
 }
 
 .systemsdiv p {
@@ -336,11 +347,27 @@ footer {
     outline: white solid;
     outline-width: 1px;
     border-radius: 5px;
+    transition: 0.5s ease;
+}
+
+.cabindiv:hover {
+    cursor: pointer;
+    scale: 1.1;
 }
 
 .cabindiv p {
     color: var(--color-cuarto);
     font-weight: bold;
+}
+
+.footerline {
+    background-color: var(--color-sexto);
+    display: flex;
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    bottom: 0px;
+    z-index: -2;
 }
 
 .footercenter {
