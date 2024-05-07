@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceX</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link rel="icon" type="image/x-icon" href="/storage/img/spacexicon.png">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" type="module" defer></script>
@@ -17,65 +18,11 @@
     <main>
 
         <div id="container3D"></div>
+
         <div class="leftpart">
 
-            <article class="left">
-                <div class="leftbox">
-                    <i class='bx bxs-check-circle' style='color:#9499c3'  ></i>
-                    <div class="leftboxcontent">
-                        <h4>ALL SYSTEMS CHECK</h4>
-                        <p>Normal</p>
-                    </div>
-                </div>
-    
-                <div class="leftbox">
-                    <i class='bx bxs-check-circle' style='color:#9499c3'  ></i>
-                    <div class="leftboxcontent">
-                        <h4>RENDEZVOUS BURN SLOW</h4>
-                        <p>Normal</p>
-                    </div>
-                </div>
-    
-                <div class="leftbox">
-                    <i class='bx bxs-check-circle' style='color:#9499c3'  ></i>
-                    <div class="leftboxcontent">
-                        <h4>PREPARE RENDEZVOUS BURN</h4>
-                        <p>Normal</p>
-                    </div>
-                </div>
-    
-                <div class="leftbox">
-                    <i class='bx bxs-check-circle' style='color:#0cd200'  ></i>
-                    <div class="leftboxcontent">
-                        <h4>THERMAL SHIELD</h4>
-                        <p style="color: var(--color-cuarto);">Applied</p>
-                    </div>
-                </div>
-    
-                <div class="leftbox">
-                    <i class='bx bxs-check-circle' style='color:#9499c3'  ></i>
-                    <div class="leftboxcontent">
-                        <h4>BURN Go/No-GO</h4>
-                        <p>Normal</p>
-                    </div>
-                </div>
-    
-                <div class="leftbox">
-                    <i class='bx bxs-check-circle' style='color:#ff9a00'  ></i>
-                    <div class="leftboxcontent">
-                        <h4>POWER COMPLETION</h4>
-                        <p style="color: var(--color-cuarto);">Awaiting</p>
-                    </div>
-                </div>
-    
-                <div class="leftbox">
-                    <i class='bx bxs-check-circle' style='color:#9499c3'  ></i>
-                    <div class="leftboxcontent">
-                        <h4>STATION DECK CHECK</h4>
-                        <p>Normal</p>
-                    </div>
-                </div>
-    
+            <article class="left" id="description__item">
+
             </article>
         </div>
         
@@ -135,40 +82,8 @@
 
         <div class="rightpart">
 
-            <nav class="right">
-                <div class="rightbox">
-                    <p>Intertial Velocity</p>
-                    <div class= "progressp">
-                        <progress id="progress" class="progress" max="100" value="30"></progress>
-                        <h3>30%</h3>
-                    </div>
-                </div>
-    
-                <div class="rightbox">
-                    <p>Intertial Velocity</p>
-                    <div class="progressp">
-                        <progress id="progress" class="progress" max="100" value="30"></progress>
-                        <h3>30%</h3>
-                    </div>
-                </div>
-    
-                <div class="rightbox">
-                    <p>Intertial Velocity</p>
-                    <div class="progressp">
-                        <progress id="progress" class="progress" max="100" value="30"></progress>
-                        <h3>30%</h3>
-                    </div>
-                </div>
-    
-                <div class="rightbox">
-                    <p>Intertial Velocity</p>
-                    <div class="progressp">
-                        <progress id="progress" class="progress" max="100" value="30"></progress>
-                        <h3>30%</h3>
-                    </div>
-                </div>
-    
-    
+            <nav class="right" id="information__2">
+
             </nav>
             
         </div>

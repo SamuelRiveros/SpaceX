@@ -156,6 +156,33 @@ aside {
         "colum__1 colum__2 colum__3";
 }
 
+.information__container {
+    /* background: blue; */
+    display: flex;
+    gap: 5px;
+    align-content: center;
+    margin: 0 var(--layout-description-container-x);
+    margin-bottom: 20px;
+}
+
+.information__container div:first-child {
+    width: 60%;
+    color: var(--color-cuarto);
+}
+
+.information__container div:first-child progress {
+    width: 100%;
+}
+
+.information__container div:last-child {
+    /* background: red; */
+    color: var(--color-secundario);
+    width: 40%;
+    display: flex;
+    align-items: flex-end;
+}
+
+
 .section__information__2 {
     /* background: blue; */
     grid-area: colum__1;

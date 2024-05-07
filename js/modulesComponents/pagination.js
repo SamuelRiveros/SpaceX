@@ -5,12 +5,12 @@ import {
 import { 
     nameRockets 
 } from "./title.js";
-/*import { 
+import { 
     informationRockets,
     informationLaunchCostRocket,
     informationFirstFlightRocket,
     informationWebRocket
-} from "./information.js";*/
+} from "./information.js";
 import { 
     informRocketEngineThrustSeaLevel, 
     informRocketEngineThrustVacuum
@@ -38,8 +38,8 @@ const getRocketsId = async(e)=>{
     
     let section__information__1 = document.querySelector("#section__information__1");
     section__information__1.innerHTML = "";
-    //let description__item = document.querySelector("#description__item")
-    //description__item.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = "";
 
@@ -47,10 +47,10 @@ const getRocketsId = async(e)=>{
     console.log(Rocket);
 
     await nameRockets(Rocket.name)
-    /*await informationRockets(Rocket.country, Rocket.description)
+    await informationRockets(Rocket.country, Rocket.description)
     await informationLaunchCostRocket(Rocket.cost_per_launch)
     await informationFirstFlightRocket(Rocket.first_flight)
-    await informationWebRocket(Rocket.wikipedia)*/
+    await informationWebRocket(Rocket.wikipedia)
 
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
