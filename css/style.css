@@ -119,6 +119,29 @@ aside {
     justify-content: center;
     align-items: center;
 }
+
+.information__table__1 {
+    width: 85%;
+    margin: 10px auto;
+    /* background: darkblue; */
+    grid-area: table__colum__1;
+}
+.information__table__1 h3{
+    text-transform: uppercase;
+    padding: 0 25px;
+    margin-bottom: 5px;
+    color: var(--color--two);
+}
+.information__table__1 hr{
+    margin: 0 auto;
+    width: 90%;
+    border-color: var(--color--two);
+}
+
+
+
+
+
 /*  */
 .item__progress__bar {
     
@@ -148,7 +171,6 @@ aside {
 }
 
 .section__information__container {
-    /* background: #d9ff00; */
     grid-area: section__main;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -157,7 +179,6 @@ aside {
 }
 
 .information__container {
-    /* background: blue; */
     display: flex;
     gap: 5px;
     align-content: center;
@@ -184,7 +205,6 @@ aside {
 
 
 .section__information__2 {
-    /* background: blue; */
     grid-area: colum__1;
     display: grid;
     grid-template-rows: 1fr 1.3fr;
@@ -194,7 +214,6 @@ aside {
 }
 
 .section__information__2 div:first-child {
-    /* background: #d9ff00; */
     grid-area: carusel__colum__1;
     display: flex;
     overflow-x: auto;
@@ -203,21 +222,17 @@ aside {
 }
 
 .section__information__2 div:first-child>.carousel__item {
-    /* flex: 1; */
     min-width: 48%;
-    /* background-color: purple; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .section__information__2 div:last-child {
-    /* background: darkblue; */
     grid-area: table__colum__1;
 }
 
 .section__image {
-    /* background: orange; */
     grid-area: colum__2;
     display: flex;
     overflow-x: auto;
@@ -225,7 +240,6 @@ aside {
 }
 
 .section__image>.carousel__item {
-    /* background: violet; */
     text-align: center;
     margin: 0 10px;
 
@@ -240,7 +254,6 @@ aside {
 }
 
 .section__information__3 {
-    /* background: violet; */
     grid-area: colum__3;
     display: grid;
     grid-template-rows: 1fr 1.3fr;
@@ -250,7 +263,6 @@ aside {
 }
 
 .section__information__3 div:first-child {
-    /* background: #d9ff00; */
     grid-area: carusel__colum__2;
     display: flex;
     overflow-x: auto;
@@ -259,9 +271,7 @@ aside {
 }
 
 .section__information__3 div:first-child>.carousel__item {
-    /* flex: 1; */
     min-width: 48%;
-    /* background-color: purple; */
     display: flex;
     justify-content: center;
     align-items: center;
