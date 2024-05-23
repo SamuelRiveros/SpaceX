@@ -2,6 +2,8 @@ import {
   getAllLaunchesId
 } from "../modules/launches.js";
 
+import { getAllRocketsId } from "../modules/rockets.js";
+
 export const informationRockets = async(country, description)=>{
     let div = document.createElement('div');
     div.classList.add('leftbox')
@@ -110,12 +112,13 @@ export const informationFirstFlightCrews = async({agency})=>{
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.style.color = "white";
+    h3.style.color = "#9499c3";
     h3.style.fontSize = "32px"; 
     h3.textContent = "Info. De Agencia";
     let small = document.createElement('small');
     small.style.fontSize = "24px"; 
     small.textContent = agency;
+    small.style.color = "#4b4f6e";
     divLast.append(h3, small);
     div.append(divFirst, divLast);
   
@@ -141,13 +144,13 @@ export const informationFirstFlightCrews = async({agency})=>{
   
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.style.color = "white";
+    h3.style.color = "#9499c3";
     h3.style.fontSize = "25px"; 
     h3.textContent = "Aprende más sobre su Crew";
     let a = document.createElement('a');
     a.setAttribute("href", wikipedia);
     a.setAttribute("target", "_blank");
-    a.style.color = "blue"; 
+    a.style.color = "#4b4f6e"; 
     a.style.fontSize = "24px"; 
     a.textContent = "Wikipedia";
     divLast.append(h3, a);
@@ -213,10 +216,11 @@ export const informationDragons = async({country, description})=>{
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.style.color = "red";
+    h3.style.color = "#9499c3";
     h3.textContent = "Country and Description";
     let small = document.createElement('small');
     small.textContent = description
+    small.style.color = "#4b4f6e"
     divLast.append(h3, small);
     div.append(divFirst, divLast);
   
@@ -234,11 +238,12 @@ export const informationDragons = async({country, description})=>{
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.style.color = "red";
+    h3.style.color = "#9499c3";
     h3.textContent = "The estimated cost per rocket launch";
     let small = document.createElement('small');
     let money = new Intl.NumberFormat('cop').format(cost_per_launch)
     small.textContent = `$ ${money}`
+    small.style.color = "#4b4f6e"
     divLast.append(h3, small);
     div.append(divFirst, divLast);
   
@@ -256,10 +261,11 @@ export const informationDragons = async({country, description})=>{
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.style.color = "red";
+    h3.style.color = "#9499c3";
     h3.textContent = "First Flight Information";
     let small = document.createElement('small');
     small.textContent = first_flight
+    small.style.color = "#4b4f6e"
     divLast.append(h3, small);
     div.append(divFirst, divLast);
   
@@ -277,12 +283,13 @@ export const informationDragons = async({country, description})=>{
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.style.color = "red";
+    h3.style.color = "#9499c3";
     h3.textContent = "Read more about the coete";
     let a = document.createElement('a');
     a.setAttribute("href", wikipedia)
     a.setAttribute("target", "_blank")
     a.textContent = "Wikipedia"
+    a.style.color = "#4b4f6e"
     divLast.append(h3, a);
     div.append(divFirst, divLast);
   
@@ -300,7 +307,7 @@ export const informationDragons = async({country, description})=>{
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
     h3.textContent = "Type";
-    h3.style.color = "red";
+    h3.style.color = "#9499c3";
     let typeText = document.createElement('p');
     typeText.textContent = type;
     typeText.style.color = "white";
@@ -320,7 +327,7 @@ export const informationDragons = async({country, description})=>{
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
     h3.textContent = "Status";
-    h3.style.color = "red";
+    h3.style.color = "#9499c3";
     let statusText = document.createElement('p');
     statusText.textContent = status;
     statusText.style.color = "white";
@@ -339,7 +346,7 @@ export const informationDragons = async({country, description})=>{
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
     h3.textContent = "Last Update";
-    h3.style.color = "red";
+    h3.style.color = "#9499c3";
     let lastUpdateText = document.createElement('p');
     lastUpdateText.textContent = last_update;
     lastUpdateText.style.color = "white";
@@ -710,7 +717,7 @@ export const informationArticle = async(link)=>{
   div.classList.add('description__container')
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+  img.setAttribute("src", "./storage/img/Mech.svg")
   divFirst.append(img);
   
   let divLast = document.createElement('div');
@@ -738,7 +745,7 @@ export const informationDate = async (date) => {
   div.classList.add('description__container')
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+  img.setAttribute("src", "./storage/img/Mech.svg")
   divFirst.append(img);
   
   let divLast = document.createElement('div');
@@ -770,4 +777,214 @@ export const informationDate2 = async (date) => {
   div.append(divFirst, divLast);
 
   section__information__1.append(div)
+}
+
+
+// Launches //
+
+export const informationDetailsLaunches = async(details)=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container')
+  div.style.scale = "1.2";
+  div.style.marginTop = "40px";
+  div.style.width = "70%";
+  div.style.height = "40%";
+  div.style.overflowY = "auto";
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "./storage/img/Mech.svg")
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.textContent = "Details of the launch"
+  let small = document.createElement('small');
+  small.textContent = details
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let section__information__1 = document.querySelector("#section__information__1")
+  section__information__1.innerHTML = "";
+  section__information__1.append(div)
+
+  // <div class="description__container">
+  //     <div>
+  //         <img src="http://www.example.com">
+  //     </div>
+  //     <div>
+  //         <h3>Title</h3>
+  //         <a href="#" target="_blank">Lorem</a>
+  //     </div>
+  // </div>
+}
+
+export const informationArticleLaunc = async(link)=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container')
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "./storage/img/Mech.svg")
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.textContent = "Launch article"
+  let a = document.createElement('a');
+  a.setAttribute("href", link)
+  a.setAttribute("target", "_blank")
+  a.textContent = "link"
+  divLast.append(h3, a);
+  div.append(divFirst, divLast);
+  let description__item = document.querySelector("#description__item")
+  description__item.append(div)
+}
+
+export const informationVideoLaunc = async(link)=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container')
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "./storage/img/mech.svg")
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.textContent = "Video about the launch"
+  let a = document.createElement('a');
+  a.setAttribute("href", link)
+  a.setAttribute("target", "_blank")
+  a.textContent = "youtube"
+  divLast.append(h3, a);
+  div.append(divFirst, divLast);
+  let description__item = document.querySelector("#description__item")
+  description__item.append(div)
+}
+
+export const informationWikiLaunc = async(wikipedia)=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container')
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "./storage/img/Mech.svg")
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.textContent = "Read more about the launch"
+  let a = document.createElement('a');
+  a.setAttribute("href", wikipedia)
+  a.setAttribute("target", "_blank")
+  a.textContent = "Wikipedia"
+  divLast.append(h3, a);
+  div.append(divFirst, divLast);
+  let description__item = document.querySelector("#description__item")
+  description__item.append(div)
+}
+
+export const imformationSuccessLaunch = async(success)=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container')
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "./storage/img/Mech.svg")
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.textContent = "Success of the launch"
+  let small = document.createElement('small');
+  small.textContent = success
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#description__item")
+  description__item.append(div)
+
+}
+
+export const imformationIdLaunch = async(id)=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container')
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "./storage/img/Mech.svg")
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.textContent = "Launch ID"
+  let small = document.createElement('small');
+  small.textContent = id
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#description__item")
+  description__item.append(div)
+
+}
+
+export const informationParchLaunch = async(link)=>{
+  let information__table__2 = document.querySelector("#information__table__2")
+  information__table__2.innerHTML = "";
+  if(link){
+      let div = document.createElement('div');
+      div.classList.add('description__container')
+      div.style.objectFit = "contain";
+      div.style.justifyContent = "center";
+      let imgFist = document.createElement("img");
+      imgFist.src = link;
+      imgFist.style.width = "60%";
+      div.append(imgFist);
+
+      information__table__2.append(div)
+  }
+}
+
+export const imformationRocketLaunch = async(Rocket)=>{
+  let RocketImg = (await getAllRocketsId(Rocket)).flickr_images[0];
+  let div = document.createElement('div');
+  div.classList.add('description__container')
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "./storage/img/Mech.svg")
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.textContent = "Rocket used"
+  let small = document.createElement('small');
+  small.textContent = Rocket
+  let img2 = document.createElement('img');
+  img2.src = RocketImg
+  img2.style.width = "100%";
+  img2.style.height = "100%";
+  img2.style.borderRadius = "2px";
+  img2.style.boxShadow = "#298BFE 0px 0px 6px 4px";
+  divLast.append(h3, small, img2);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#information__2")
+  description__item.innerHTML = "";
+  description__item.append(div)
+
+}
+
+export const imformationLaunchesImg = async(imagen)=>{
+  let description__item = document.querySelector("#description__item")
+  description__item.innerHTML = "";
+  if(imagen){
+      let div = document.createElement('div');
+      div.classList.add('description__container')
+      div.style.marginTop = "4px";
+      div.style.justifyContent = "center";
+      let imgFist = document.createElement("img");
+      imgFist.src = imagen;
+      imgFist.style.width = "100%";
+      imgFist.style.height = "200px";
+      imgFist.style.borderRadius = "2px";
+      imgFist.style.boxShadow = "#298BFE 0px 0px 6px 4px";
+      div.append(imgFist);
+
+      description__item.append(div)
+  }
 }

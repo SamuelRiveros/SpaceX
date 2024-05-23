@@ -228,7 +228,7 @@ export const tableDragonColumn1 = async (Dragons) => {
     informationTable1.append(div);
 }
 
-////////////////////////////////7 TABLAS CAPSULAS ////////////////////////////////////////////////7
+// Tablas capsulas //
 
 export const tableCapsulesLaunches = async (Capsules) => {
     let information__table__1 = document.querySelector("#information__table__1");
@@ -256,7 +256,7 @@ export const tableCapsulesserial = async (Capsules) => {
     let information__table__1 = document.querySelector("#information__table__2");
     information__table__1.innerHTML = "";
     let h3 = document.createElement("h3");
-    h3.style.fontSize = "25px"; // Aumenta el tamaño de fuente del título a 32 píxeles
+    h3.style.fontSize = "25px"; 
     h3.style.color = "red";
     h3.textContent = "Capsule Serial";
     let hr = document.createElement("hr");
@@ -264,10 +264,10 @@ export const tableCapsulesserial = async (Capsules) => {
     div.classList.add("table__container__1");
     let div1 = document.createElement("div");
     let span1 = document.createElement("span");
-    span1.style.fontSize = "20px"; // Aumenta el tamaño de fuente del texto a 24 píxeles
+    span1.style.fontSize = "20px"; 
     span1.textContent = "Serial";
     let strong1 = document.createElement("strong");
-    strong1.style.fontSize = "20px"; // Aumenta el tamaño de fuente del texto a 24 píxeles
+    strong1.style.fontSize = "20px"; 
     strong1.textContent = `${Capsules.serial}`;
     div1.append(span1, strong1);
     div.append(div1);
@@ -280,7 +280,7 @@ export const tableCoresLaunchesland = async (Land) => {
     let information__table__1 = document.querySelector("#information__table__1");
     information__table__1.innerHTML = "";
     let h3 = document.createElement("h3");
-    h3.style.fontSize = "22px"; // Aumenta el tamaño de fuente del título a 32 píxeles
+    h3.style.fontSize = "22px"; 
     h3.style.color = "red";
     h3.textContent = "LANDPADS ID";
     let hr = document.createElement("hr");
@@ -288,11 +288,11 @@ export const tableCoresLaunchesland = async (Land) => {
     div.classList.add("table__container__1");
     let div1 = document.createElement("div");
     let span1 = document.createElement("span");
-    span1.style.fontSize = "14px"; // Aumenta el tamaño de fuente del texto a 24 píxeles
+    span1.style.fontSize = "14px";
     span1.style.color = "blue";
     span1.textContent = "N° ID";
     let strong1 = document.createElement("strong");
-    strong1.style.fontSize = "14px"; // Aumenta el tamaño de fuente del texto a 24 píxeles
+    strong1.style.fontSize = "14px"; 
     strong1.style.color = "green";
     strong1.textContent = `${Land.id}`;
     div1.append(span1, strong1);
@@ -346,5 +346,61 @@ export const tableLandColum1 = async (Rocket)=>{
 
     div.append(div1, div2, div3, div4)
     information__table__2.append(div)
+
+}
+
+export const tableLaunchesColum1 = async (Launch)=>{
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Dates information"
+    let hr = document.createElement("hr");
+    information__table__1.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "date_utc"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${Launch.date_utc}`
+    div1.append(span1, strong1)
+
+    // 
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "date_unix"
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${Launch.date_unix}`
+    div2.append(span2, strong2)
+
+    // 
+    let div3 = document.createElement("div");
+    let span3 = document.createElement("span");
+    span3.textContent = "date_local"
+    let strong3 = document.createElement("strong");
+    strong3.textContent = `${Launch.date_local}`
+    div3.append(span3, strong3)
+
+    // 
+    let div4 = document.createElement("div");
+    let span4 = document.createElement("span");
+    span4.textContent = "date_precision"
+    let strong4 = document.createElement("strong");
+    strong4.textContent = `${Launch.date_precision}`
+    div4.append(span4, strong4)
+
+    // 
+    let div5 = document.createElement("div");
+    let span5 = document.createElement("span");
+    span5.textContent = "upcoming"
+    let strong5 = document.createElement("strong");
+    strong5.textContent = `${Launch.upcoming}`
+    div5.append(span5, strong5)
+
+    div.append(div1, div2, div3, div4, div5)
+    information__table__1.append(div)
+    // 
 
 }

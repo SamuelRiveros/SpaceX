@@ -7,7 +7,8 @@ import {
     paginationCapsules,
     paginationLandpads,
     paginationLaunchpads,
-    paginationHistory
+    paginationHistory,
+    paginationLaunches
 } from "./modulesComponents/pagination.js";
 
 

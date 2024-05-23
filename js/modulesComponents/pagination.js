@@ -30,7 +30,10 @@ import {
     tableCapsulesLaunches,
     tableCapsulesserial,
     tableCoresLaunchesland,
-    tableLandColum1
+    tableLandColum1,
+
+    tableLaunchesColum1,
+
 } from "./tables.js"
 
 import { 
@@ -93,6 +96,15 @@ import {
     informationDate2,
     informationAttemptLaunch,
     informationSuccesesLaunch,
+    informationDetailsLaunches,
+    informationArticleLaunc,
+    informationVideoLaunc,
+    informationWikiLaunc,
+    imformationSuccessLaunch,
+    imformationIdLaunch,
+    informationParchLaunch,
+    imformationRocketLaunch,
+    imformationLaunchesImg
 
 } from "./information.js";
 
@@ -132,6 +144,10 @@ import {
     getAllHistoryId
 } from "../modules/history.js";
 
+import { 
+    getAllLaunches,
+    getAllLaunchesId
+} from "../modules/launches.js";
 
 
 
@@ -454,14 +470,7 @@ export const paginationDragons = async()=>{
     });
     let [a1,a2] = div.children
     a2.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
+
     return div;
 }
 
@@ -535,14 +544,7 @@ export const paginationCapsules = async(page=1, limit=4)=>{
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
     a1.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
+
     return div;
 }
 
@@ -750,5 +752,80 @@ const getHistoryId = async(e)=>{
     await informationId(History.id)
     await informationDate(History.event_date_utc)
     await informationDate2(History.event_date_unix)
+    
+}
+
+export const paginationLaunches = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLaunches(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLaunchesId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLaunchesId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLaunchesId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    // <div class="buttom__paginacion">
+    //     <a href="#">&laquo;</a> 
+    //     <a href="#" class="activo">1</a>
+    //     <a href="#">2</a>
+    //     <a href="#">3</a>
+    //     <a href="#">4</a>
+    //     <a href="#">&raquo;</a>
+    // </div>
+    return div;
+}
+
+const getLaunchesId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Launch = await getAllLaunchesId(e.target.id);
+    console.log(Launch);
+
+    await nameRockets(Launch.name)
+    await imformationLaunchesImg(Launch.links.flickr.original[0])
+    await informationDetailsLaunches(Launch.details)
+    await imformationSuccessLaunch(Launch.success)
+    await informationWikiLaunc(Launch.links.wikipedia)
+    await informationVideoLaunc(Launch.links.webcast)
+    await informationArticleLaunc(Launch.links.article)
+    await imformationIdLaunch(Launch.id)
+    
+    await tableLaunchesColum1(Launch)
+    await informationParchLaunch(Launch.links.patch.small)
+    await imformationRocketLaunch(Launch.rocket)
     
 }

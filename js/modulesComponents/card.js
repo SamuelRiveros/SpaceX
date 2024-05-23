@@ -17,7 +17,7 @@ export const imageRockets = async(flickr_images)=>{
 
 export const imageCrews = async (crewData) => {
     let section__image = document.querySelector("#section__image");
-    section__image.innerHTML = ""; // Limpiar el contenedor de imágenes antes de agregar una nueva
+    section__image.innerHTML = "";
     
     crewData.forEach(member => {
         let div = document.createElement("div");
@@ -25,11 +25,11 @@ export const imageCrews = async (crewData) => {
         
         let img = document.createElement("img");
         img.setAttribute("src", member.image);
-        img.setAttribute("alt", member.name); // Asociar el nombre como atributo alt para accesibilidad
+        img.setAttribute("alt", member.name);
         img.setAttribute("referrerpolicy", "no-referrer");
 
         // Establecer el tamaño de la imagen
-        img.setAttribute("style", "width: 200px; height: auto;"); // Ejemplo de tamaño (ajusta según lo necesites)
+        img.setAttribute("style", "width: 300px; height: auto;");
         
         // Centrar la imagen
         img.onload = function() {
