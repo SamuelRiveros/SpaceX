@@ -11,12 +11,9 @@ export const imageRockets = async(flickr_images)=>{
         divs.push(div);
     });
     section__image.append(...divs)
-    // <div class="carousel__item">
-    //     <img src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg" referrerpolicy="no-referrer">
-    // </div>
 }
 
-//////////////7 IMAGENES CREWS /////////////////////////////////////////////////////////////
+// ImageCrews //
 
 export const imageCrews = async (crewData) => {
     let section__image = document.querySelector("#section__image");
@@ -52,7 +49,7 @@ export const imageCrews = async (crewData) => {
     });
 };
 
-// IMGS DRAGONS //
+// Imgs Dragon //
 
 export const imageDragons = async (flickr_images) => {
     let section__image = document.querySelector("#section__image");
@@ -82,4 +79,38 @@ export const imageDragons = async (flickr_images) => {
     textContainer.appendChild(text2);
 
     section__image.appendChild(textContainer);
+};
+
+// Landpads //
+
+export const imageLandpads = async (landpadData) => {
+
+    landpadData.forEach(pad => {
+        let div = document.createElement("div");
+        div.classList.add("carousel__item");
+        
+        let img = document.createElement("img");
+        img.setAttribute("src", pad.images.large[0]); // Acceder a la imagen "large"
+        img.setAttribute("alt", pad.name); // Asociar el nombre como atributo alt para accesibilidad
+        img.setAttribute("referrerpolicy", "no-referrer");
+
+        // Establecer el tamaño de la imagen
+        img.setAttribute("style", "width: 80vh; height: auto;"); // Ejemplo de tamaño (ajusta según lo necesites)
+        
+        // Centrar la imagen
+        img.onload = function() {
+            let imgWidth = this.width;
+            let imgHeight = this.height;
+            let containerWidth = section__image.offsetWidth;
+            let containerHeight = section__image.offsetHeight;
+            let marginLeft = (containerWidth - imgWidth) / 2;
+            let marginTop = (containerHeight - imgHeight) / 2;
+            
+            this.style.marginLeft = marginLeft + "px";
+            this.style.marginTop = marginTop + "px";
+        };
+
+        div.append(img);
+        section__image.append(div);
+    });
 };

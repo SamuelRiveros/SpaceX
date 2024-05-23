@@ -305,7 +305,7 @@ export const informationDragons = async({country, description})=>{
     let description__item = document.querySelector("#description__item");
     description__item.append(div);
   }
-  
+
   export const informationCapsuleStatus = async ({status}) => {
     let div = document.createElement('div');
     div.classList.add('description__container');
@@ -346,3 +346,158 @@ export const informationDragons = async({country, description})=>{
   };
 
   
+
+  // Landpads //
+
+export const informationFirstFlightland = async({full_name})=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container');
+  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "storage/img/mech.svg");
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.style.color = "red";
+  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
+  h3.textContent = "Full Name";
+  let small = document.createElement('small');
+  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.textContent = full_name;
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#description__item");
+  description__item.append(div);
+}
+
+export const informationFirstFlightlandstatus = async({status})=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container');
+  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "storage/img/mech.svg");
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.style.color = "red";
+  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
+  h3.textContent = "Status";
+  let small = document.createElement('small');
+  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.textContent = status;
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#description__item");
+  description__item.append(div);
+}
+
+export const informationFirstFlightlandstatustype = async({type})=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container');
+  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "storage/img/mech.svg");
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.style.color = "red";
+  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
+  h3.textContent = "Type";
+  let small = document.createElement('small');
+  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.textContent = type;
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#description__item");
+  description__item.append(div);
+}
+
+export const informationFirstFlightlandstatustypelocality = async({locality})=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container');
+  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "storage/img/mech.svg");
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.style.color = "red";
+  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
+  h3.textContent = "Locality";
+  let small = document.createElement('small');
+  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.textContent = locality;
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#description__item");
+  description__item.append(div);
+}
+
+export const informationFirstFlightlandstatustypelocalityre = async({region})=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container');
+  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "storage/img/mech.svg");
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.style.color = "red";
+  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
+  h3.textContent = "Region";
+  let small = document.createElement('small');
+  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.textContent = region;
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#description__item");
+  description__item.append(div);
+}
+
+
+
+export const informationFirstFlightlandstatustypelocalityredet = async({details})=>{
+  let div = document.createElement('div');
+  div.classList.add('description__container');
+  div.style.width = "90%"; // Ajusta el ancho del div principal al 20%
+  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+
+  let divFirst = document.createElement('div');
+  let img = document.createElement('img');
+  img.setAttribute("src", "storage/img/mech.svg");
+  divFirst.append(img);
+  
+  let divLast = document.createElement('div');
+  let h3 = document.createElement('h3');
+  h3.style.color = "red";
+  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
+  h3.textContent = "Details";
+  let small = document.createElement('small');
+  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.textContent = details;
+  divLast.append(h3, small);
+  div.append(divFirst, divLast);
+
+  let description__item = document.querySelector("#information__2");
+  description__item.append(div);
+}
