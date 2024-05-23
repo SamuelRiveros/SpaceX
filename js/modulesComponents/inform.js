@@ -124,6 +124,7 @@ export const informDragonData = async () => {
     div.classList.add("carousel__item");
     let divFirst = document.createElement('div');
     divFirst.classList.add("item__progress__bar");
+
     let percentage = (totalDragons * 100) / totalDragons;
     let color = 'blue';
     divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(${color} ${percentage}%, transparent 0)`;

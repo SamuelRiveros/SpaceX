@@ -204,14 +204,14 @@ export const informationCoresStatus = async ({status}) => {
     description__item.append(div);
   };
 
-  //////////////////////// DRAGONS ///////////////////////////////////////////////////////////
+  //----------------------/ DRAGONS /----------------------//
 
 export const informationDragons = async({country, description})=>{
     let div = document.createElement('div');
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/mech.svg")
+    img.setAttribute("src", "./storage/img/Mech.svg")
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -233,7 +233,7 @@ export const informationDragons = async({country, description})=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/mech.svg")
+    img.setAttribute("src", "./storage/img/Mech.svg")
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -256,7 +256,7 @@ export const informationDragons = async({country, description})=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/mech.svg")
+    img.setAttribute("src", "./storage/img/Mech.svg")
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -765,7 +765,7 @@ export const informationDate2 = async (date) => {
   div.classList.add('description__container')
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "/storage/img/icons/iconos/mech.svg")
+  img.setAttribute("src", "./storage/img/Mech.svg")
   divFirst.append(img);
   
   let divLast = document.createElement('div');

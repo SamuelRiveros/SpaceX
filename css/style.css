@@ -193,6 +193,29 @@ aside {
     transform: rotate(180deg); 
   }
 
+  .uppercircle {
+    
+    color: var(--color-cuarto);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(
+        closest-side, 
+        #1d1f38 85%, 
+        transparent 85% 100%), 
+        conic-gradient(var(--color-quinto) 
+        80%, 
+        transparent 0);  
+    transform: rotate(180deg); 
+  }
+
+
+
+
 .progress__value{
     color: var(--color--cuarto);
     display: flex;
