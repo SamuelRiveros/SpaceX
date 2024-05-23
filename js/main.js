@@ -5,7 +5,9 @@ import {
     paginationCores,
     paginationDragons,
     paginationCapsules,
-    paginationLandpads
+    paginationLandpads,
+    paginationLaunchpads,
+    paginationHistory
 } from "./modulesComponents/pagination.js";
 
 
@@ -85,3 +87,18 @@ Landpads.addEventListener("click", async(e)=>{
     paginacion.append(await paginationLandpads())
 })
 
+let Launchpads = document.querySelector("#Launchpads")
+Launchpads.addEventListener("click", async(e)=>{
+    await footerSelect(e, Launchpads)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationLaunchpads())
+})
+
+let History = document.querySelector("#History")
+History.addEventListener("click", async(e)=>{
+    await footerSelect(e, History)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationHistory())
+})

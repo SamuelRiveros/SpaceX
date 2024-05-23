@@ -299,3 +299,52 @@ export const tableCoresLaunchesland = async (Land) => {
     div.append(div1);
     information__table__1.append(h3, hr, div);
 };
+
+// Launchpads // 
+
+export const tableLandColum1 = async (Rocket)=>{
+    let information__table__2 = document.querySelector("#information__table__1");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Ubication information"
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    // 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "locality"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${Rocket.locality}`
+    div1.append(span1, strong1)
+
+    // 
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "region"
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${Rocket.region}`
+    div2.append(span2, strong2)
+
+    // 
+    let div3 = document.createElement("div");
+    let span3 = document.createElement("span");
+    span3.textContent = "latitude"
+    let strong3 = document.createElement("strong");
+    strong3.textContent = `${Rocket.latitude}`
+    div3.append(span3, strong3)
+
+    // 
+    let div4 = document.createElement("div");
+    let span4 = document.createElement("span");
+    span4.textContent = "longitude"
+    let strong4 = document.createElement("strong");
+    strong4.textContent = `${Rocket.longitude}`
+    div4.append(span4, strong4)
+
+    div.append(div1, div2, div3, div4)
+    information__table__2.append(div)
+
+}

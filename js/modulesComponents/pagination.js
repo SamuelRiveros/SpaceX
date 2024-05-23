@@ -6,21 +6,16 @@ import {
 import { 
     nameRockets,
     nameCrews,
-
     nameCores,
     nameDragons,
-
     nameCapsules,
-
     nameLand,
-    
 
 } from "./title.js";
 
 import { 
     informRocketEngineThrustSeaLevel, 
     informRocketEngineThrustVacuum,
-
     informDragonLaunchPayloadMass,
     informDragonData,
 
@@ -29,23 +24,19 @@ import {
 import {
     tableRocketColum1,
     tableRocketColum2,
-
     tableCoresLaunches,
     tableCoreLaunchesid,
-
     tableDragonColumn1,
-
     tableCapsulesLaunches,
     tableCapsulesserial,
-
     tableCoresLaunchesland,
+    tableLandColum1
 } from "./tables.js"
 
 import { 
     imageRockets,
     imageCrews,
     imageDragons,
-
     imageLandpads,
 
 } from "./card.js";
@@ -76,24 +67,33 @@ import {
     informationWebRocket,
     informationFirstFlightCrews,
     informationWebCrew,
-
     informationCoreLastUpdate,
     informationCoresStatus,
     informationDragons,
     informationLaunchCostDragons,
     informationFirstFlightDragons,
     informationWebDragons,
-
     informationCapsuleStatus,
     informationCapsuleType,
     informationCapsuleLastUpdate,
-
     informationFirstFlightland,
     informationFirstFlightlandstatus,
     informationFirstFlightlandstatustype,
     informationFirstFlightlandstatustypelocalityre,
     informationFirstFlightlandstatustypelocality,
-    informationFirstFlightlandstatustypelocalityredet
+    informationFirstFlightlandstatustypelocalityredet,
+    informationNameLand,
+    informationId,
+    informationStatusLand,
+    informationWikiLand,
+    informationLaunchCrew,
+    informationDetails,
+    informationArticle,
+    informationDate,
+    informationDate2,
+    informationAttemptLaunch,
+    informationSuccesesLaunch,
+
 } from "./information.js";
 
 
@@ -122,24 +122,15 @@ import{
     getAllLand
 }   from "../modules/Landpads.js" 
 
+import {
+    getAllLaunchpadsId,
+    getAllLaunchpads
+} from "../modules/Launchpads.js";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import {
+    getAllHistory,
+    getAllHistoryId
+} from "../modules/history.js";
 
 
 
@@ -626,4 +617,138 @@ export const paginationLandpads = async(page=1, limit=4)=>{
     let [back, a1,a2,a3,a4, next] = div.children
     a2.click();
     return div;
+}
+
+// launchpads // 
+
+const getLaunchpadsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunchpads(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Launchpads = await getAllLaunchpadsId(e.target.id);
+    console.log(Launchpads);
+
+    await nameRockets(Launchpads.name)  
+    
+    await informationNameLand(Launchpads.full_name)
+    await informationId(Launchpads.id)
+    await informationStatusLand(Launchpads.status)
+    await informationWikiLand(Launchpads.wikipedia)
+
+    await informationLaunchCrew(Launchpads.launches)
+
+    await informationDetails(Launchpads.details)
+
+    await tableLandColum1(Launchpads)
+    await informationAttemptLaunch(Launchpads.launch_attempts)
+    await informationSuccesesLaunch(Launchpads.launch_successes)
+    
+}
+
+export const paginationLaunchpads = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLaunchpads(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLaunchpadsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLaunchpadsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLaunchpadsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+export const paginationHistory = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllHistory(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getHistoryId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getHistoryId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getHistoryId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+
+    return div;
+}
+
+const getHistoryId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationHistory(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let History = await getAllHistoryId(e.target.id);
+    console.log(History);
+
+    await nameRockets(History.title)    
+    await informationDetails(History.details)
+    await informationArticle(History.links.article)
+    await informationId(History.id)
+    await informationDate(History.event_date_utc)
+    await informationDate2(History.event_date_unix)
+    
 }
