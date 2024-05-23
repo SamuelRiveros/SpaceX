@@ -69,4 +69,17 @@ export const imageDragons = async (flickr_images) => {
 
         divs.push(div);
     });
-    
+    section__image.append(...divs);
+    let textContainer = document.createElement("div");
+    textContainer.classList.add("text-container");
+    let text1 = document.createElement("div");
+    text1.textContent = "CABIN MICS:";
+    text1.style.color = "white";
+    let text2 = document.createElement("div");
+    text2.textContent = "RECORDING";
+    text2.style.color = "red";
+    textContainer.appendChild(text1);
+    textContainer.appendChild(text2);
+
+    section__image.appendChild(textContainer);
+};

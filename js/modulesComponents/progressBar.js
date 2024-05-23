@@ -11,6 +11,13 @@ import{
     getCoresStats
 }   from "../modules/cores.js"
 
+import{
+    getDragonMassTotal,
+    getDragonHeightTotal,
+    getDragonDiameterTotal,
+    getDragonSecondStageCompositeFairingDiameterTotal
+}   from "../modules/dragons.js"
+
 
 export const progressRocketWeight = async(Rockets)=>{
     let {kg} = await getRocketMassTotal();
@@ -281,3 +288,169 @@ export const progressCoresStats = async (Cores) => {
         document.querySelector("#information__2").appendChild(divInformationContainer);
     });
 };
+
+// Dragons //
+
+export const progressDragonWeight = async(Dragons)=>{
+    let kg = await getDragonMassTotal();
+    let conterDiv = [];
+    [Dragons].forEach((val) => {
+        let divInformationContainer = document.createElement("div");
+        divInformationContainer.classList.add("information__container");
+
+        let divFirst = document.createElement("div");
+        let labelFirst = document.createElement("label");
+        labelFirst.textContent = "Dragon weight:";
+
+        let progressFirst = document.createElement("progress");
+        progressFirst.max = kg;
+        progressFirst.value = val.dry_mass_kg;
+        progressFirst.textContent = `${((val.dry_mass_kg / kg) * 100).toFixed(2)}%`;
+
+        let divLast = document.createElement("div");
+        let spanLast = document.createElement("span");
+        let numKg = new Intl.NumberFormat('cop').format(val.dry_mass_kg);
+        let numLb = new Intl.NumberFormat('cop').format(val.dry_mass_lbs);
+        spanLast.innerHTML = `${numKg} kg <br> ${numLb} lb`;
+
+        divFirst.append(labelFirst);
+        divFirst.append(progressFirst);
+        divLast.append(spanLast);
+        divInformationContainer.append(divFirst);
+        divInformationContainer.append(divLast);
+        conterDiv.push(divInformationContainer);
+    });
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv);
+}
+
+export const progressHeightDragon = async(Dragons)=>{
+    let {meters} = await getDragonHeightTotal();
+    let conterDiv = [];
+    [Dragons].map(dragon => dragon.height_w_trunk).forEach(val => {
+        let divInformationContainer = document.createElement("div");
+        divInformationContainer.classList.add("information__container");
+
+        let divFirst = document.createElement("div");
+        let labelFirst = document.createElement("label");
+        labelFirst.textContent = `Dragon Height :`;
+
+        let progressFirst = document.createElement("progress");
+        progressFirst.max = meters;
+        progressFirst.value = val.meters;
+        progressFirst.textContent = `${((val.meters / meters) * 100).toFixed(2)}%`;
+
+        let divLast = document.createElement("div");
+        let spanLast = document.createElement("span");
+        let numMeters = new Intl.NumberFormat('cop').format(val.meters);
+        let numFeet = new Intl.NumberFormat('cop').format(val.feet);
+        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`;
+
+        divFirst.append(labelFirst);
+        divFirst.append(progressFirst);
+        divLast.append(spanLast);
+        divInformationContainer.append(divFirst);
+        divInformationContainer.append(divLast);
+        conterDiv.push(divInformationContainer);
+    });
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv);
+}
+
+
+export const progressDiameterDragon = async(Dragons)=>{
+    let {meters} = await getDragonDiameterTotal();
+    let conterDiv = [];
+    [Dragons.diameter].forEach(val => {
+        let divInformationContainer = document.createElement("div");
+        divInformationContainer.classList.add("information__container");
+
+        let divFirst = document.createElement("div");
+        let labelFirst = document.createElement("label");
+        labelFirst.textContent = `Dragon diameter :`;
+
+        let progressFirst = document.createElement("progress");
+        progressFirst.max = meters;
+        progressFirst.value = val.meters;
+        progressFirst.textContent = `${((val.meters / meters) * 100).toFixed(2)}%`;
+
+        let divLast = document.createElement("div");
+        let spanLast = document.createElement("span");
+        let numMeters = new Intl.NumberFormat('cop').format(val.meters);
+        let numFeet = new Intl.NumberFormat('cop').format(val.feet);
+        spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`;
+
+        divFirst.append(labelFirst);
+        divFirst.append(progressFirst);
+        divLast.append(spanLast);
+        divInformationContainer.append(divFirst);
+        divInformationContainer.append(divLast);
+        conterDiv.push(divInformationContainer);
+    });
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv);
+}
+
+export const progressSecondStageDiameterDragon = async(Dragons) => {
+    let diameterResult = await getDragonSecondStageCompositeFairingDiameterTotal();
+    let diameter = diameterResult !== null ? diameterResult : 0; // Asignar 0 si diameterResult es nulo
+    let conterDiv = [];
+
+    [Dragons].forEach(dragon => {
+        if (dragon && dragon.trunk && dragon.trunk.cargo && dragon.trunk.cargo.composite_fairing && dragon.trunk.cargo.composite_fairing.diameter) {
+            let divInformationContainer = document.createElement("div");
+            divInformationContainer.classList.add("information__container");
+
+            let divFirst = document.createElement("div");
+            let labelFirst = document.createElement("label");
+            labelFirst.textContent = `Diameter dragon shield :`;
+
+            let progressFirst = document.createElement("progress");
+            progressFirst.max = diameter;
+            progressFirst.value = dragon.trunk.cargo.composite_fairing.diameter.meters;
+            progressFirst.textContent = `${((dragon.trunk.cargo.composite_fairing.diameter.meters / diameter) * 100).toFixed(2)}%`;
+
+            let divLast = document.createElement("div");
+            let spanLast = document.createElement("span");
+            let numMeters = new Intl.NumberFormat('cop').format(dragon.trunk.cargo.composite_fairing.diameter.meters);
+            let numFeet = new Intl.NumberFormat('cop').format(dragon.trunk.cargo.composite_fairing.diameter.feet);
+            spanLast.innerHTML = `${numMeters} M <br> ${numFeet} F`;
+
+            divFirst.append(labelFirst);
+            divFirst.append(progressFirst);
+            divLast.append(spanLast);
+            divInformationContainer.append(divFirst);
+            divInformationContainer.append(divLast);
+            conterDiv.push(divInformationContainer);
+        } else {
+            let divInformationContainer = document.createElement("div");
+            divInformationContainer.classList.add("information__container");
+
+            let divFirst = document.createElement("div");
+            let labelFirst = document.createElement("label");
+            labelFirst.textContent = `Diameter dragon shield :`;
+
+            let progressFirst = document.createElement("progress");
+            progressFirst.max = diameter;
+            progressFirst.value = 0;
+            progressFirst.textContent = `0%`;
+
+            let divLast = document.createElement("div");
+            let spanLast = document.createElement("span");
+            spanLast.innerHTML = `0 M <br> 0 F`;
+
+            divFirst.append(labelFirst);
+            divFirst.append(progressFirst);
+            divLast.append(spanLast);
+            divInformationContainer.append(divFirst);
+            divInformationContainer.append(divLast);
+            conterDiv.push(divInformationContainer);
+        }
+    });
+
+    let information__2 = document.querySelector("#information__2");
+    information__2.append(...conterDiv);
+}

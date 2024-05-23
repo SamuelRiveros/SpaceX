@@ -52,11 +52,12 @@ nav, article {
 }
 
 .left {
+    height: 75vh;
     display: flex;
     justify-content: center;
     gap: 50px;
-    overflow: hidden;
-    max-width: 80%;
+    overflow-y: auto;
+    max-width: 90%;
 }
 
 .leftbox {
@@ -257,7 +258,7 @@ aside {
     align-items: center;
 }
 
-.section__information__2 div:last-child {
+.section__information__2 .information__table__1 {
     grid-area: table__colum__1;
 }
 

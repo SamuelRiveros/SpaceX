@@ -15,6 +15,9 @@ import {
     informRocketEngineThrustSeaLevel, 
     informRocketEngineThrustVacuum,
 
+    informDragonLaunchPayloadMass,
+    informDragonData,
+
 } from "./inform.js";
 
 import {
@@ -23,6 +26,8 @@ import {
 
     tableCoresLaunches,
     tableCoreLaunchesid,
+
+    tableDragonColumn1,
 } from "./tables.js"
 
 import { 
@@ -40,6 +45,11 @@ import {
 
 
     progressCoresStats,
+
+    progressDragonWeight,
+    progressHeightDragon,
+    progressDiameterDragon,
+    progressSecondStageDiameterDragon,
 } from "../modulesComponents/progressBar.js";
 
 
@@ -163,7 +173,7 @@ const getRocketsId = async(e)=>{
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = "";
 
-    //esconder carruseles//
+    //mostrar carruseles//
     let carruseles = document.querySelectorAll(".carousel__item");
     carruseles.forEach(element => {
         element.classList.remove('hidden');
@@ -391,5 +401,39 @@ const getDragonsId = async(e)=>{
     await progressSecondStageDiameterDragon(Dragons)
     await imageDragons(Dragons.flickr_images)
     await nameDragons(Dragons.name)
-    
+    await informDragonLaunchPayloadMass(Dragons.launch_payload_mass)
+    await informDragonData();
+    await tableDragonColumn1(Dragons)
+    await informationDragons(Dragons)
+    await informationLaunchCostDragons(Dragons)
+    await informationFirstFlightDragons(Dragons)
+    await informationWebDragons(Dragons)
+}
+
+
+export const paginationDragons = async()=>{
+    let Dragons = await getAllDragons();
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+  
+    Dragons.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = id+1;
+        a.addEventListener("click", getDragonsId)
+        div.appendChild(a);
+    });
+    let [a1,a2] = div.children
+    a2.click();
+    // <div class="buttom__paginacion">
+    //     <a href="#">&laquo;</a> 
+    //     <a href="#" class="activo">1</a>
+    //     <a href="#">2</a>
+    //     <a href="#">3</a>
+    //     <a href="#">4</a>
+    //     <a href="#">&raquo;</a>
+    // </div>
+    return div;
+}
 
