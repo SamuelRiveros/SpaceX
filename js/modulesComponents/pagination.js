@@ -4,7 +4,10 @@ import {
 } from "../modules/rockets.js";
 
 import { 
-    nameRockets 
+    nameRockets,
+
+    nameCrews,
+
 } from "./title.js";
 
 import { 
@@ -18,7 +21,8 @@ import {
 } from "./tables.js"
 
 import { 
-    imageRockets 
+    imageRockets,
+    imageCrews
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -65,72 +69,6 @@ import {
     getAllCrews,
     getAllCrewsId
 } from "../modules/crew.js";
-
-
-const getRocketsId = async(e)=>{
-    e.preventDefault();
-    let a = e.target.parentElement.children;
-    for(let val of a){
-        val.classList.remove('activo');
-    }
-    e.target.classList.add('activo');
-    
-    
-    let description__item = document.querySelector("#description__item")
-    description__item.innerHTML = "";
-    let information__2 = document.querySelector("#information__2");
-    information__2.innerHTML = "";
-    let section__image = document.querySelector("#section__image")
-    section__image.innerHTML = "";
-
-    let Rocket = await getAllRocketsId(e.target.id);
-    console.log(Rocket);
-
-    await nameRockets(Rocket.name)
-    await informationRockets(Rocket.country, Rocket.description)
-    await informationLaunchCostRocket(Rocket.cost_per_launch)
-    await informationFirstFlightRocket(Rocket.first_flight)
-    await informationWebRocket(Rocket.wikipedia)
-
-    await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
-    await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
-    await imageRockets(Rocket.flickr_images);
-
-    await tableRocketColum1(Rocket)
-    await tableRocketColum2(Rocket)
-
-    await progressRocketWeight(Rocket)
-    await progressPayloadWeights(Rocket)
-    await progressHeightRocket(Rocket)
-    await progressDiameterRocket(Rocket)
-    await progressSecondStageDiameterRocket(Rocket)
-    await progressSecondStageHeightRocket(Rocket)
-}
-export const paginationRockets = async()=>{
-    let rockets = await getAllRockets();
-    let div = document.createElement("div");
-    div.classList.add("buttom__paginacion")
-  
-    rockets.forEach((val,id) => {
-        let a = document.createElement("a");
-        a.setAttribute("href","#");
-        a.id = val.id;
-        a.textContent = id+1;
-        a.addEventListener("click", getRocketsId)
-        div.appendChild(a);
-    });
-    let [a1,a2,a3,a4] = div.children
-    a1.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
-    return div;
-}
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -179,6 +117,75 @@ export const load = async()=>{
 }
 
 
+const getRocketsId = async(e)=>{
+    e.preventDefault();
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+
+    //esconder carruseles//
+    let carruseles = document.querySelectorAll(".carousel__item");
+    carruseles.forEach(element => {
+        element.classList.remove('hidden');
+        document.querySelector('.section__information__3 div:first-child').style.display = 'flex';
+        document.querySelector('.section__information__2 div:first-child').style.display = 'flex';
+    });
+
+
+    let Rocket = await getAllRocketsId(e.target.id);
+    console.log(Rocket);
+
+    await nameRockets(Rocket.name)
+    await informationRockets(Rocket.country, Rocket.description)
+    await informationLaunchCostRocket(Rocket.cost_per_launch)
+    await informationFirstFlightRocket(Rocket.first_flight)
+    await informationWebRocket(Rocket.wikipedia)
+
+    await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
+    await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
+    await imageRockets(Rocket.flickr_images);
+
+    await tableRocketColum1(Rocket)
+    await tableRocketColum2(Rocket)
+
+    await progressRocketWeight(Rocket)
+    await progressPayloadWeights(Rocket)
+    await progressHeightRocket(Rocket)
+    await progressDiameterRocket(Rocket)
+    await progressSecondStageDiameterRocket(Rocket)
+    await progressSecondStageHeightRocket(Rocket)
+}
+export const paginationRockets = async()=>{
+    let rockets = await getAllRockets();
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+  
+    rockets.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = id+1;
+        a.addEventListener("click", getRocketsId)
+        div.appendChild(a);
+    });
+    let [a1,a2,a3,a4] = div.children
+    a1.click();
+    return div;
+}
+
+
+
+
 const getCrewsId = async(e)=>{
     e.preventDefault();
     if(e.target.dataset.page){
@@ -197,6 +204,13 @@ const getCrewsId = async(e)=>{
     description__item.innerHTML = "";
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = "";
+
+    let carruseles = document.querySelectorAll(".carousel__item");
+        carruseles.forEach(element => {
+        element.classList.add('hidden');
+        document.querySelector('.section__information__3 div:first-child').style.display = 'none';
+        document.querySelector('.section__information__2 div:first-child').style.display = 'none';
+    });
     
     
     let Crew = await getAllCrewsId(e.target.id);

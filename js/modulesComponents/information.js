@@ -143,9 +143,9 @@ export const informationFirstFlightCrews = async({agency})=>{
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.style.color = "red";
+    h3.style.color = "white";
     h3.style.fontSize = "32px"; // Aumenta el tamaño de fuente del título
-    h3.textContent = "Information Agency";
+    h3.textContent = "Info. De Agencia";
     let small = document.createElement('small');
     small.style.fontSize = "24px"; // Aumenta el tamaño de fuente del texto
     small.textContent = agency;
@@ -174,9 +174,9 @@ export const informationFirstFlightCrews = async({agency})=>{
   
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.style.color = "red";
+    h3.style.color = "white";
     h3.style.fontSize = "25px"; // Aumenta el tamaño de fuente del título
-    h3.textContent = "Read more about this Crew";
+    h3.textContent = "Aprende más sobre su Crew";
     let a = document.createElement('a');
     a.setAttribute("href", wikipedia);
     a.setAttribute("target", "_blank");

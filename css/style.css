@@ -6,6 +6,8 @@
     font-family: sans-serif;
 }
 
+
+
 body {
     height: 100vh;
     width: 100vw;
@@ -14,14 +16,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
-
-#container3D canvas {
-    width: 100vw !important;
-    height: 100vh !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
 
 header {
     color: var(--color-cuarto);
@@ -513,4 +507,8 @@ footer {
 
 .buttom__paginacion a:hover:not(.activo) {
     background-color: var(--color-primario--rgba);
+}
+
+.hidden {
+    display: none;
 }
