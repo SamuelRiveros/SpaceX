@@ -155,6 +155,10 @@ export const progressSecondStageDiameterRocket = async(Rockets)=>{
         ProgressFist.value = `${val.meters}`;
         ProgressFist.textContent = `${val.meters}%`;
     
+        if(typeof val.meters ==="number" && isFinite(val.meters)) {
+            ProgressFist.value = "0"
+            return;
+        }
     
         let divLast = document.createElement("div");
         let spanLast = document.createElement("span");
