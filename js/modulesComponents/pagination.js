@@ -9,6 +9,9 @@ import {
 
     nameCores,
     nameDragons,
+
+    nameCapsules,
+
 } from "./title.js";
 
 import { 
@@ -28,6 +31,9 @@ import {
     tableCoreLaunchesid,
 
     tableDragonColumn1,
+
+    tableCapsulesLaunches,
+    tableCapsulesserial
 } from "./tables.js"
 
 import { 
@@ -50,6 +56,8 @@ import {
     progressHeightDragon,
     progressDiameterDragon,
     progressSecondStageDiameterDragon,
+
+    progressCapsuleStats,
 } from "../modulesComponents/progressBar.js";
 
 
@@ -67,6 +75,10 @@ import {
     informationLaunchCostDragons,
     informationFirstFlightDragons,
     informationWebDragons,
+
+    informationCapsuleStatus,
+    informationCapsuleType,
+    informationCapsuleLastUpdate,
 } from "./information.js";
 
 
@@ -85,8 +97,10 @@ import{
     getAllDragonsId
 }   from "../modules/dragons.js"
 
-
-
+import { 
+    getAllCapsules,
+    getAllCapsulesId
+} from "../modules/capsules.js";
 
 
 
@@ -174,6 +188,7 @@ const getRocketsId = async(e)=>{
     section__image.innerHTML = "";
 
     //mostrar carruseles//
+
     let carruseles = document.querySelectorAll(".carousel__item");
     carruseles.forEach(element => {
         element.classList.remove('hidden');
@@ -244,6 +259,8 @@ const getCrewsId = async(e)=>{
     description__item.innerHTML = "";
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = "";
+
+    // Esconder //
 
     let carruseles = document.querySelectorAll(".carousel__item");
         carruseles.forEach(element => {
@@ -437,3 +454,83 @@ export const paginationDragons = async()=>{
     return div;
 }
 
+const getCapsulesId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+
+    let carruseles = document.querySelectorAll(".carousel__item");
+        carruseles.forEach(element => {
+        element.classList.add('hidden');
+        document.querySelector('.section__information__3 div:first-child').style.display = 'none';
+        document.querySelector('.section__information__2 div:first-child').style.display = 'none';
+    });
+
+    
+    let Capsules = await getAllCapsulesId(e.target.id);
+    console.log(Capsules);
+    await nameCapsules(Capsules.serial);
+    await progressCapsuleStats(Capsules);
+    await informationCapsuleType(Capsules);
+    await informationCapsuleStatus(Capsules);
+    await informationCapsuleLastUpdate(Capsules);
+    await tableCapsulesLaunches(Capsules)
+    await tableCapsulesserial(Capsules)
+
+    
+}
+
+export const paginationCapsules = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCapsules(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getCapsulesId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getCapsulesId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getCapsulesId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    // <div class="buttom__paginacion">
+    //     <a href="#">&laquo;</a> 
+    //     <a href="#" class="activo">1</a>
+    //     <a href="#">2</a>
+    //     <a href="#">3</a>
+    //     <a href="#">4</a>
+    //     <a href="#">&raquo;</a>
+    // </div>
+    return div;
+}

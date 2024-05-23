@@ -18,6 +18,10 @@ import{
     getDragonSecondStageCompositeFairingDiameterTotal
 }   from "../modules/dragons.js"
 
+import{
+    getCapsuleStats
+}   from "../modules/capsules.js"
+
 
 export const progressRocketWeight = async(Rockets)=>{
     let {kg} = await getRocketMassTotal();
@@ -454,3 +458,67 @@ export const progressSecondStageDiameterDragon = async(Dragons) => {
     let information__2 = document.querySelector("#information__2");
     information__2.append(...conterDiv);
 }
+
+/////////////////// PROGRES BAR CAPSULAS //////////////////////////////////////////////////////////
+
+export const progressCapsuleStats = async (Capsules) => {
+    let { reuse_count, water_landings, land_landings } = await getCapsuleStats();
+
+    [Capsules].forEach((val) => {
+        let divInformationContainer = document.createElement("div");
+        divInformationContainer.style.textAlign = "center";
+        divInformationContainer.style.fontSize = "20px";
+        divInformationContainer.style.marginBottom = "15px";
+
+        let createProgressElement = (labelText, value, maxValue) => {
+            let div = document.createElement("div");
+            let label = document.createElement("label");
+            label.textContent = `${labelText}:`;
+            label.style.color = "white";
+            div.append(label);
+
+            let progressContainer = document.createElement("div");
+            progressContainer.style.marginBottom = "5px"; // Agrega un margen inferior para separar la barra del texto
+
+            let progress = document.createElement("progress");
+            progress.max = maxValue;
+            progress.value = value;
+
+            let progressText = document.createElement("span");
+            progressText.style.color = "white";
+            progressText.style.fontWeight = "bold";
+
+            if (value === 0) {
+                progress.style.color = "white";
+                progress.style.backgroundColor = "red";
+                progressText.textContent = "0";
+            } else if (value === 1) {
+                progress.style.color = "white";
+                progress.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+                progressText.textContent = "1";
+            } else if (value === 2) {
+                progress.style.color = "white";
+                progress.style.backgroundColor = "yellow";
+                progressText.textContent = "2";
+            } else if (value === 3) {
+                progress.style.color = "white";
+                progress.style.backgroundColor = "green";
+                progressText.textContent = "3";
+            } else {
+                progressText.textContent = "No hay datos";
+            }
+
+            progressContainer.append(progress, progressText);
+            div.append(progressContainer);
+            return div;
+        };
+
+        divInformationContainer.append(createProgressElement("Reuse Count", val.reuse_count, reuse_count));
+        divInformationContainer.append(document.createElement("br"));
+        divInformationContainer.append(createProgressElement("Water Landings", val.water_landings, 3));
+        divInformationContainer.append(document.createElement("br"));
+        divInformationContainer.append(createProgressElement("Land Landings", val.land_landings, land_landings));
+
+        document.querySelector("#information__2").appendChild(divInformationContainer);
+    });
+};
