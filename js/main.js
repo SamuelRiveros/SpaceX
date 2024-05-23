@@ -2,6 +2,7 @@ import {
     load,
     paginationRockets,
     paginationCrews,
+    paginationCores
 } from "./modulesComponents/pagination.js";
 
 
@@ -38,6 +39,14 @@ Crew.addEventListener("click", async(e)=>{
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
     paginacion.append(await paginationCrews())
+})
+
+let cores = document.querySelector("#Cores")
+cores.addEventListener("click", async(e)=>{
+    await footerSelect(e, cores)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationCores())
 })
 
 

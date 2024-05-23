@@ -192,3 +192,47 @@ export const informationFirstFlightCrews = async({agency})=>{
     let description__item = document.querySelector("#description__item");
     description__item.append(div);
   }
+
+
+  //////////////////////////// CORES ///////////////////////////////////////////7
+
+export const informationCoresStatus = async ({status}) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/mech.svg");
+    divFirst.append(img);
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Status";
+    h3.style.color = "gray";
+    let statusText = document.createElement('p');
+    statusText.textContent = status;
+    statusText.style.color = "white";
+    divLast.append(h3, statusText);
+    div.append(divFirst, divLast);
+    let description__item = document.querySelector("#description__item");
+    description__item.append(div);
+  };
+  
+  
+  export const informationCoreLastUpdate = async ({last_update}) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    div.style.display = "flex"; 
+    div.style.flexDirection = "column";
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Last Update";
+    h3.style.color = "gray";
+    let lastUpdateText = document.createElement('p');
+    lastUpdateText.textContent = last_update;
+    lastUpdateText.style.color = "white";
+    divLast.append(h3, lastUpdateText);
+    div.append(divFirst, divLast);
+    let description__item = document.querySelector("#description__item");
+    description__item.append(div);
+  };

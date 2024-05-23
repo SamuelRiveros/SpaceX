@@ -7,6 +7,10 @@ import {
     getRocketSecondStageCompositeFairingHeightTotal
 } from "../modules/rockets.js";
 
+import{
+    getCoresStats
+}   from "../modules/cores.js"
+
 
 export const progressRocketWeight = async(Rockets)=>{
     let {kg} = await getRocketMassTotal();
@@ -210,3 +214,70 @@ export const progressSecondStageHeightRocket = async(Rockets)=>{
     information__2.append(...conterDiv)
     
 }
+
+/////////////////// PROGRES BAR CORES //////////////////////////////////////////////////////////
+
+export const progressCoresStats = async (Cores) => {
+    let { reuse_count, rtls_attempts, rtls_landings, asds_attempts, asds_landings } = await getCoresStats();
+
+    [Cores].forEach((val) => {
+        let divInformationContainer = document.createElement("div");
+        divInformationContainer.style.textAlign = "center";
+        divInformationContainer.style.fontSize = "20px";
+
+        let createProgressElement = (labelText, value, maxValue) => {
+            let div = document.createElement("div");
+            let label = document.createElement("label");
+            label.textContent = `${labelText}:`;
+            label.style.color = "white";
+            div.append(label);
+
+            let progressContainer = document.createElement("div");
+
+            let progress = document.createElement("progress");
+            progress.max = maxValue;
+            progress.value = value;
+            progress.style.marginBottom = "5px"; // Agrega un margen inferior para separar la barra del texto
+
+            let progressText = document.createElement("span");
+            progressText.style.color = "white";
+            progressText.style.fontWeight = "bold";
+
+            if (value === 0) {
+                progress.style.color = "white";
+                progress.style.backgroundColor = "red";
+                progressText.textContent = "0";
+            } else if (value === 1) {
+                progress.style.color = "white";
+                progress.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+                progressText.textContent = "1";
+            } else if (value === 2) {
+                progress.style.color = "white";
+                progress.style.backgroundColor = "yellow";
+                progressText.textContent = "2";
+            } else if (value === 3) {
+                progress.style.color = "white";
+                progress.style.backgroundColor = "green";
+                progressText.textContent = "3";
+            } else {
+                progressText.textContent = "No hay datos";
+            }
+
+            progressContainer.append(progress, progressText);
+            div.append(progressContainer);
+            return div;
+        };
+
+        divInformationContainer.append(createProgressElement("Reuse Count", val.reuse_count, reuse_count));
+        divInformationContainer.append(document.createElement("br"));
+        divInformationContainer.append(createProgressElement("RTLS Attempts", val.rtls_attempts, rtls_attempts));
+        divInformationContainer.append(document.createElement("br"));
+        divInformationContainer.append(createProgressElement("RTLS Landings", val.rtls_landings, rtls_landings));
+        divInformationContainer.append(document.createElement("br"));
+        divInformationContainer.append(createProgressElement("ASDS Attempts", val.asds_attempts, asds_attempts));
+        divInformationContainer.append(document.createElement("br"));
+        divInformationContainer.append(createProgressElement("ASDS Landings", val.asds_landings, asds_landings));
+
+        document.querySelector("#information__2").appendChild(divInformationContainer);
+    });
+};
