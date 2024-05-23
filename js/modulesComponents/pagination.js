@@ -8,6 +8,7 @@ import {
     nameCrews,
 
     nameCores,
+    nameDragons,
 } from "./title.js";
 
 import { 
@@ -26,7 +27,8 @@ import {
 
 import { 
     imageRockets,
-    imageCrews
+    imageCrews,
+    imageDragons,
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -51,26 +53,10 @@ import {
 
     informationCoreLastUpdate,
     informationCoresStatus,
-
-    /*
-    informationCapsuleType,
-    informationCapsuleStatus,
-    informationCapsuleLastUpdate,
     informationDragons,
     informationLaunchCostDragons,
     informationFirstFlightDragons,
     informationWebDragons,
-    informationFirstFlightland,
-    informationFirstFlightlandstatus,
-    informationFirstFlightlandstatustype,
-    informationFirstFlightlandstatustypelocalityre,
-    informationFirstFlightlandstatustypelocality,
-    informationFirstFlightlandstatustypelocalityredet,
-    informationFirstFlightlandstatustypelocalityredetship,
-    informationFirstFlightlandstatustypelocalityredetshipt,
-    informationFirstFlightlandstatusypelocalityredetshipt,
-    informationFirtFlightlandstatustypelocalityre
-    */
 } from "./information.js";
 
 
@@ -84,7 +70,10 @@ import{
     getAllCoresId
 }   from "../modules/cores.js"
 
-
+import{
+    getAllDragons,
+    getAllDragonsId
+}   from "../modules/dragons.js"
 
 
 
@@ -377,4 +366,30 @@ const getCoresId = async(e)=>{
     await tableCoresLaunches(Cores)
     await tableCoreLaunchesid(Cores)
 }
+
+/////////////////////////////// PAGINATION DRAGONS ////////////////////////////////////////////
+
+const getDragonsId = async(e)=>{
+    e.preventDefault();
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo'); 
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    
+    let Dragons = await getAllDragonsId(e.target.id);
+    console.log(Dragons)
+    await progressDragonWeight(Dragons);
+    await progressHeightDragon(Dragons);
+    await progressDiameterDragon(Dragons);
+    await progressSecondStageDiameterDragon(Dragons)
+    await imageDragons(Dragons.flickr_images)
+    await nameDragons(Dragons.name)
+    
 
