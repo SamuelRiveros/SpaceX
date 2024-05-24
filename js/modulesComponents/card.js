@@ -74,7 +74,7 @@ export const imageDragons = async (flickr_images) => {
     text1.style.color = "white";
     let text2 = document.createElement("div");
     text2.textContent = "RECORDING";
-    text2.style.color = "red";
+    text2.style.color = "white";
     textContainer.appendChild(text1);
     textContainer.appendChild(text2);
 

@@ -248,7 +248,7 @@ export const progressCoresStats = async (Cores) => {
             let progress = document.createElement("progress");
             progress.max = maxValue;
             progress.value = value;
-            progress.style.marginBottom = "5px"; // Agrega un margen inferior para separar la barra del texto
+            progress.style.marginBottom = "5px";
 
             let progressText = document.createElement("span");
             progressText.style.color = "white";
@@ -256,19 +256,21 @@ export const progressCoresStats = async (Cores) => {
 
             if (value === 0) {
                 progress.style.color = "white";
-                progress.style.backgroundColor = "red";
+                progress.style.max = "232";
+                progress.style.value = value;
                 progressText.textContent = "0";
             } else if (value === 1) {
                 progress.style.color = "white";
-                progress.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+                progress.style.max = "232";
+                progress.style.value = value;
                 progressText.textContent = "1";
             } else if (value === 2) {
                 progress.style.color = "white";
-                progress.style.backgroundColor = "yellow";
+                progress.style.max = "232";
                 progressText.textContent = "2";
             } else if (value === 3) {
                 progress.style.color = "white";
-                progress.style.backgroundColor = "green";
+                progress.style.max = "232";
                 progressText.textContent = "3";
             } else {
                 progressText.textContent = "No hay datos";
@@ -490,19 +492,15 @@ export const progressCapsuleStats = async (Capsules) => {
 
             if (value === 0) {
                 progress.style.color = "white";
-                progress.style.backgroundColor = "red";
                 progressText.textContent = "0";
             } else if (value === 1) {
                 progress.style.color = "white";
-                progress.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
                 progressText.textContent = "1";
             } else if (value === 2) {
                 progress.style.color = "white";
-                progress.style.backgroundColor = "yellow";
                 progressText.textContent = "2";
             } else if (value === 3) {
                 progress.style.color = "white";
-                progress.style.backgroundColor = "green";
                 progressText.textContent = "3";
             } else {
                 progressText.textContent = "No hay datos";

@@ -27,30 +27,7 @@ export const informationRockets = async(country, description)=>{
     description__item.append(div)
 
 }
-export const informationLaunchCostRocket = async(cost_per_launch)=>{
-    let div = document.createElement('div');
-    div.classList.add('leftbox')
-    let divFirst = document.createElement('div');
-    divFirst.classList.add("icon")
-    let icon = document.createElement('i');
-    icon.setAttribute("class", "bx bxs-check-circle");
-    icon.style.color = "#9499c3";
-    divFirst.append(icon);
-    
-    let divLast = document.createElement('div');
-    divLast.classList.add("leftboxcontent")
-    let h4 = document.createElement('h4');
-    h4.textContent = "The estimated cost per rocket launch"
-    let p = document.createElement('p');
-    let money = new Intl.NumberFormat('cop').format(cost_per_launch)
-    p.textContent = `$ ${money}`
-    divLast.append(h4, p);
-    div.append(divFirst, divLast);
 
-    let description__item = document.querySelector("#description__item")
-    description__item.append(div)
-
-}
 export const informationFirstFlightRocket = async(first_flight)=>{
     let div = document.createElement('div');
     div.classList.add('leftbox')
@@ -87,11 +64,12 @@ export const informationWebRocket = async(wikipedia)=>{
     let divLast = document.createElement('div');
     divLast.classList.add("leftboxcontent")
     let h4 = document.createElement('h4');
-    h4.textContent = "Read more about the coete"
+    h4.textContent = "Leer sobre el cohete..."
     let a = document.createElement('a');
     a.setAttribute("href", wikipedia)
     a.setAttribute("target", "_blank")
     a.textContent = "Wikipedia"
+    a.style.color = "#4b4f6e"
     divLast.append(h4, a);
     div.append(divFirst, divLast);
     let description__item = document.querySelector("#description__item")
@@ -107,7 +85,7 @@ export const informationFirstFlightCrews = async({agency})=>{
   
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/mech.svg");
+    img.setAttribute("src", "storage/img/Mech.svg");
     divFirst.append(img);
     
     let divLast = document.createElement('div');
@@ -139,7 +117,7 @@ export const informationFirstFlightCrews = async({agency})=>{
   
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/mech.svg");
+    img.setAttribute("src", "storage/img/Mech.svg");
     divFirst.append(img);
   
     let divLast = document.createElement('div');
@@ -153,6 +131,7 @@ export const informationFirstFlightCrews = async({agency})=>{
     a.style.color = "#4b4f6e"; 
     a.style.fontSize = "24px"; 
     a.textContent = "Wikipedia";
+    a.style.color = "#4b4f6e"
     divLast.append(h3, a);
   
   
@@ -193,7 +172,7 @@ export const informationCoresStatus = async ({status}) => {
     div.style.flexDirection = "column";
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.textContent = "Last Update";
+    h3.textContent = "Ultimas actualizaciones";
     h3.style.color = "gray";
     let lastUpdateText = document.createElement('p');
     lastUpdateText.textContent = last_update;
@@ -220,29 +199,6 @@ export const informationDragons = async({country, description})=>{
     h3.textContent = "Country and Description";
     let small = document.createElement('small');
     small.textContent = description
-    small.style.color = "#4b4f6e"
-    divLast.append(h3, small);
-    div.append(divFirst, divLast);
-  
-    let description__item = document.querySelector("#description__item")
-    description__item.append(div)
-  }
-  
-  export const informationLaunchCostDragons = async(cost_per_launch)=>{
-    let div = document.createElement('div');
-    div.classList.add('description__container')
-    let divFirst = document.createElement('div');
-    let img = document.createElement('img');
-    img.setAttribute("src", "./storage/img/Mech.svg")
-    divFirst.append(img);
-    
-    let divLast = document.createElement('div');
-    let h3 = document.createElement('h3');
-    h3.style.color = "#9499c3";
-    h3.textContent = "The estimated cost per rocket launch";
-    let small = document.createElement('small');
-    let money = new Intl.NumberFormat('cop').format(cost_per_launch)
-    small.textContent = `$ ${money}`
     small.style.color = "#4b4f6e"
     divLast.append(h3, small);
     div.append(divFirst, divLast);
@@ -278,13 +234,13 @@ export const informationDragons = async({country, description})=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/mech.svg")
+    img.setAttribute("src", "storage/img/Mech.svg")
     divFirst.append(img);
     
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
     h3.style.color = "#9499c3";
-    h3.textContent = "Read more about the coete";
+    h3.textContent = "Lee más sobre el cohete...";
     let a = document.createElement('a');
     a.setAttribute("href", wikipedia)
     a.setAttribute("target", "_blank")
@@ -302,7 +258,7 @@ export const informationDragons = async({country, description})=>{
     div.classList.add('description__container');
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/mech.svg");
+    img.setAttribute("src", "storage/img/Mech.svg");
     divFirst.append(img);
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
@@ -322,7 +278,7 @@ export const informationDragons = async({country, description})=>{
     div.classList.add('description__container');
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/mech.svg");
+    img.setAttribute("src", "storage/img/Mech.svg");
     divFirst.append(img);
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
@@ -341,11 +297,11 @@ export const informationDragons = async({country, description})=>{
     let div = document.createElement('div');
     div.classList.add('description__container');
     let divFirst = document.createElement('div');
-    div.style.display = "flex"; // Cambia el diseño a flexbox
+    div.style.display = "flex";
     div.style.flexDirection = "column";
     let divLast = document.createElement('div');
     let h3 = document.createElement('h3');
-    h3.textContent = "Last Update";
+    h3.textContent = "Ultimas actualizaciones";
     h3.style.color = "#9499c3";
     let lastUpdateText = document.createElement('p');
     lastUpdateText.textContent = last_update;
@@ -363,21 +319,23 @@ export const informationDragons = async({country, description})=>{
 export const informationFirstFlightland = async({full_name})=>{
   let div = document.createElement('div');
   div.classList.add('description__container');
-  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+  div.style.fontSize = "24px";
 
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "storage/img/mech.svg");
+  img.setAttribute("src", "storage/img/Mech.svg");
   divFirst.append(img);
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.style.color = "red";
-  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
-  h3.textContent = "Full Name";
+  h3.style.color = "white";
+  h3.style.fontSize = "20px";
+  h3.textContent = "Nombre completo";
+  h3.style.color = "#9499c3";
   let small = document.createElement('small');
-  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.style.fontSize = "16px";
   small.textContent = full_name;
+  small.style.color = "#4b4f6e"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -388,21 +346,23 @@ export const informationFirstFlightland = async({full_name})=>{
 export const informationFirstFlightlandstatus = async({status})=>{
   let div = document.createElement('div');
   div.classList.add('description__container');
-  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+  div.style.fontSize = "24px";
 
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "storage/img/mech.svg");
+  img.setAttribute("src", "storage/img/Mech.svg");
   divFirst.append(img);
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.style.color = "red";
-  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
+  h3.style.color = "white";
+  h3.style.fontSize = "20px";
   h3.textContent = "Status";
+  h3.style.color = "#9499c3";
   let small = document.createElement('small');
-  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.style.fontSize = "16px";
   small.textContent = status;
+  small.style.color = "#4b4f6e"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -413,20 +373,21 @@ export const informationFirstFlightlandstatus = async({status})=>{
 export const informationFirstFlightlandstatustype = async({type})=>{
   let div = document.createElement('div');
   div.classList.add('description__container');
-  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+  div.style.fontSize = "24px";
 
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "storage/img/mech.svg");
+  img.setAttribute("src", "storage/img/Mech.svg");
   divFirst.append(img);
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.style.color = "red";
-  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
-  h3.textContent = "Type";
+  h3.style.color = "white";
+  h3.style.fontSize = "20px";
+  h3.textContent = "Tipo de zona de caída";
+  h3.style.color = "#9499c3";
   let small = document.createElement('small');
-  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.style.fontSize = "16px";
   small.textContent = type;
   divLast.append(h3, small);
   div.append(divFirst, divLast);
@@ -438,20 +399,21 @@ export const informationFirstFlightlandstatustype = async({type})=>{
 export const informationFirstFlightlandstatustypelocality = async({locality})=>{
   let div = document.createElement('div');
   div.classList.add('description__container');
-  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+  div.style.fontSize = "24px";
 
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "storage/img/mech.svg");
+  img.setAttribute("src", "storage/img/Mech.svg");
   divFirst.append(img);
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.style.color = "red";
-  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
-  h3.textContent = "Locality";
+  h3.style.color = "white";
+  h3.style.fontSize = "20px";
+  h3.textContent = "Localidad";
+  h3.style.color = "#9499c3";
   let small = document.createElement('small');
-  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.style.fontSize = "16px";
   small.textContent = locality;
   divLast.append(h3, small);
   div.append(divFirst, divLast);
@@ -463,20 +425,21 @@ export const informationFirstFlightlandstatustypelocality = async({locality})=>{
 export const informationFirstFlightlandstatustypelocalityre = async({region})=>{
   let div = document.createElement('div');
   div.classList.add('description__container');
-  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+  div.style.fontSize = "24px";
 
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "storage/img/mech.svg");
+  img.setAttribute("src", "storage/img/Mech.svg");
   divFirst.append(img);
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.style.color = "red";
-  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
+  h3.style.color = "white";
+  h3.style.fontSize = "20px";
   h3.textContent = "Region";
+  h3.style.color = "#9499c3";
   let small = document.createElement('small');
-  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.style.fontSize = "16px";
   small.textContent = region;
   divLast.append(h3, small);
   div.append(divFirst, divLast);
@@ -490,22 +453,23 @@ export const informationFirstFlightlandstatustypelocalityre = async({region})=>{
 export const informationFirstFlightlandstatustypelocalityredet = async({details})=>{
   let div = document.createElement('div');
   div.classList.add('description__container');
-  div.style.width = "90%"; // Ajusta el ancho del div principal al 20%
-  div.style.fontSize = "24px"; // Aumenta el tamaño de fuente del contenedor
+  div.style.width = "90%";
+  div.style.fontSize = "24px";
 
   let divFirst = document.createElement('div');
   let img = document.createElement('img');
-  img.setAttribute("src", "storage/img/mech.svg");
+  img.setAttribute("src", "storage/img/Mech.svg");
   divFirst.append(img);
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.style.color = "red";
-  h3.style.fontSize = "20px"; // Aumenta el tamaño de fuente del título
-  h3.textContent = "Details";
+  h3.style.color = "white";
+  h3.style.fontSize = "20px";
+  h3.textContent = "Detalles";
   let small = document.createElement('small');
-  small.style.fontSize = "16px"; // Aumenta el tamaño de fuente del texto
+  small.style.fontSize = "16px";
   small.textContent = details;
+  small.style.color = "#4b4f6e"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -532,9 +496,11 @@ export const informationDetails = async(details)=>{
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "details of the success"
+  h3.textContent = "Detalles del exito"
+  h3.style.color = "white";
   let small = document.createElement('small');
   small.textContent = details
+  small.style.color = "white"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -555,8 +521,10 @@ export const informationId = async (id) => {
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
   h3.textContent = "ID"
+  h3.style.color = "#9499c3";
   let small = document.createElement('small');
   small.textContent = id
+  small.style.color = "#4b4f6e"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -586,9 +554,11 @@ export const informationNameLand = async (full_name) => {
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "full_name"
+  h3.textContent = "Nombre Completo"
+  h3.style.color = "#9499c3";
   let small = document.createElement('small');
   small.textContent = full_name
+  small.style.color = "#4b4f6e"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -607,6 +577,7 @@ export const informationStatusLand = async (status) => {
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
   h3.textContent = "Status"
+  h3.style.color = "#9499c3";
   let small = document.createElement('small');
   small.textContent = status
   divLast.append(h3, small);
@@ -626,11 +597,13 @@ export const informationWikiLand = async(wikipedia)=>{
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "Read more about the landpad"
+  h3.textContent = "Leer sobre el landpad..."
+  h3.style.color = "#9499c3";
   let a = document.createElement('a');
   a.setAttribute("href", wikipedia)
   a.setAttribute("target", "_blank")
   a.textContent = "Wikipedia"
+  a.style.color = "#4b4f6e"
   divLast.append(h3, a);
   div.append(divFirst, divLast);
   let description__item = document.querySelector("#description__item")
@@ -672,46 +645,6 @@ export const informationLaunchCrew = async (launch) => {
   information__table__1.innerHTML = "";
 }
 
-export const informationAttemptLaunch = async (launch_attempts) => {
-  let section__information__1 = document.querySelector("#information__table__2")
-  let div = document.createElement('div');
-  div.classList.add('description__container')
-  let divFirst = document.createElement('div');
-  let img = document.createElement('img');
-  img.setAttribute("src", "./storage/img/mech.svg")
-  divFirst.append(img);
-  
-  let divLast = document.createElement('div');
-  let h3 = document.createElement('h3');
-  h3.textContent = "landing_attempts"
-  let small = document.createElement('small');
-  small.textContent = launch_attempts
-  divLast.append(h3, small);
-  div.append(divFirst, divLast);
-
-  section__information__1.append(div)
-}
-
-export const informationSuccesesLaunch = async (launch_successes) => {
-  let section__information__1 = document.querySelector("#information__table__2")
-  let div = document.createElement('div');
-  div.classList.add('description__container')
-  let divFirst = document.createElement('div');
-  let img = document.createElement('img');
-  img.setAttribute("src", "./storage/img/mech.svg")
-  divFirst.append(img);
-  
-  let divLast = document.createElement('div');
-  let h3 = document.createElement('h3');
-  h3.textContent = "launch_successes"
-  let small = document.createElement('small');
-  small.textContent = launch_successes
-  divLast.append(h3, small);
-  div.append(divFirst, divLast);
-
-  section__information__1.append(div)
-}
-
 export const informationArticle = async(link)=>{
   let div = document.createElement('div');
   div.classList.add('description__container')
@@ -723,10 +656,12 @@ export const informationArticle = async(link)=>{
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
   h3.textContent = "Archivement article"
+  h3.style.color = "white";
   let a = document.createElement('a');
   a.setAttribute("href", link)
   a.setAttribute("target", "_blank")
   a.textContent = "link"
+  a.style.color ="white"
   divLast.append(h3, a);
   div.append(divFirst, divLast);
   let description__item = document.querySelector("#description__item")
@@ -750,9 +685,11 @@ export const informationDate = async (date) => {
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "event_date_utc"
+  h3.textContent = "Fecha del evento utc"
+  h3.style.color = "white"
   let small = document.createElement('small');
   small.textContent = date
+  small.style.color = "#4b4f6e"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -770,9 +707,11 @@ export const informationDate2 = async (date) => {
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "event_date_unix"
+  h3.textContent = "Fecha del evento unix"
+  h3.style.color = "white"
   let small = document.createElement('small');
   small.textContent = date
+  small.style.color = "#4b4f6e"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -797,9 +736,11 @@ export const informationDetailsLaunches = async(details)=>{
   
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "Details of the launch"
+  h3.textContent = "Detalles del lanzamiento"
+  h3.style.color = "white";
   let small = document.createElement('small');
   small.textContent = details
+  small.style.color = "white"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
 
@@ -822,81 +763,29 @@ export const informationArticleLaunc = async(link)=>{
   let div = document.createElement('div');
   div.classList.add('description__container')
   let divFirst = document.createElement('div');
-  let img = document.createElement('img');
-  img.setAttribute("src", "./storage/img/Mech.svg")
-  divFirst.append(img);
-  
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "Launch article"
-  let a = document.createElement('a');
-  a.setAttribute("href", link)
-  a.setAttribute("target", "_blank")
-  a.textContent = "link"
-  divLast.append(h3, a);
+  divLast.append(h3);
   div.append(divFirst, divLast);
   let description__item = document.querySelector("#description__item")
   description__item.append(div)
 }
 
-export const informationVideoLaunc = async(link)=>{
-  let div = document.createElement('div');
-  div.classList.add('description__container')
-  let divFirst = document.createElement('div');
-  let img = document.createElement('img');
-  img.setAttribute("src", "./storage/img/mech.svg")
-  divFirst.append(img);
-  
-  let divLast = document.createElement('div');
-  let h3 = document.createElement('h3');
-  h3.textContent = "Video about the launch"
-  let a = document.createElement('a');
-  a.setAttribute("href", link)
-  a.setAttribute("target", "_blank")
-  a.textContent = "youtube"
-  divLast.append(h3, a);
-  div.append(divFirst, divLast);
-  let description__item = document.querySelector("#description__item")
-  description__item.append(div)
-}
-
-export const informationWikiLaunc = async(wikipedia)=>{
-  let div = document.createElement('div');
-  div.classList.add('description__container')
-  let divFirst = document.createElement('div');
-  let img = document.createElement('img');
-  img.setAttribute("src", "./storage/img/Mech.svg")
-  divFirst.append(img);
-  
-  let divLast = document.createElement('div');
-  let h3 = document.createElement('h3');
-  h3.textContent = "Read more about the launch"
-  let a = document.createElement('a');
-  a.setAttribute("href", wikipedia)
-  a.setAttribute("target", "_blank")
-  a.textContent = "Wikipedia"
-  divLast.append(h3, a);
-  div.append(divFirst, divLast);
-  let description__item = document.querySelector("#description__item")
-  description__item.append(div)
-}
 
 export const imformationSuccessLaunch = async(success)=>{
   let div = document.createElement('div');
   div.classList.add('description__container')
   let divFirst = document.createElement('div');
-  let img = document.createElement('img');
-  img.setAttribute("src", "./storage/img/Mech.svg")
-  divFirst.append(img);
-  
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "Success of the launch"
+  h3.textContent = "Lanzamientos exitosos"
+  h3.style.color = "rgb(148, 153, 195)"
+  h3.style.fontSize = "32px"
   let small = document.createElement('small');
   small.textContent = success
+  small.style.color = "white"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
-
   let description__item = document.querySelector("#description__item")
   description__item.append(div)
 
@@ -905,19 +794,17 @@ export const imformationSuccessLaunch = async(success)=>{
 export const imformationIdLaunch = async(id)=>{
   let div = document.createElement('div');
   div.classList.add('description__container')
-  let divFirst = document.createElement('div');
-  let img = document.createElement('img');
-  img.setAttribute("src", "./storage/img/Mech.svg")
-  divFirst.append(img);
-  
+  let divFirst = document.createElement('div'); 
   let divLast = document.createElement('div');
   let h3 = document.createElement('h3');
-  h3.textContent = "Launch ID"
+  h3.textContent = "ID del lanzamiento"
+  h3.style.color = "rgb(148, 153, 195)"
+  h3.style.fontSize = "32px"
   let small = document.createElement('small');
   small.textContent = id
+  small.style.color = "white"
   divLast.append(h3, small);
   div.append(divFirst, divLast);
-
   let description__item = document.querySelector("#description__item")
   description__item.append(div)
 
@@ -941,7 +828,6 @@ export const informationParchLaunch = async(link)=>{
 }
 
 export const imformationRocketLaunch = async(Rocket)=>{
-  let RocketImg = (await getAllRocketsId(Rocket)).flickr_images[0];
   let div = document.createElement('div');
   div.classList.add('description__container')
   let divFirst = document.createElement('div');
@@ -954,13 +840,6 @@ export const imformationRocketLaunch = async(Rocket)=>{
   h3.textContent = "Rocket used"
   let small = document.createElement('small');
   small.textContent = Rocket
-  let img2 = document.createElement('img');
-  img2.src = RocketImg
-  img2.style.width = "100%";
-  img2.style.height = "100%";
-  img2.style.borderRadius = "2px";
-  img2.style.boxShadow = "#298BFE 0px 0px 6px 4px";
-  divLast.append(h3, small, img2);
   div.append(divFirst, divLast);
 
   let description__item = document.querySelector("#information__2")

@@ -130,18 +130,18 @@ export const tableCoresLaunches = async (Cores) => {
     let h3 = document.createElement("h3");
     h3.style.fontSize = "32px"; 
     h3.style.color = "white";
-    h3.textContent = "Capsule Launches";
+    h3.textContent = "Lanzamientos de capsula";
     let hr = document.createElement("hr");
     let div = document.createElement("div");
     div.classList.add("table__container__1");
     let div1 = document.createElement("div");
     let span1 = document.createElement("span");
     span1.style.fontSize = "24px"; 
-    span1.style.color = "blue";
-    span1.textContent = "N° Block";
+    span1.textContent = "Nro de bloque";
+    span1.style.color = "gray";
     let strong1 = document.createElement("strong");
     strong1.style.fontSize = "24px"; 
-    strong1.style.color = "green";
+    strong1.style.color = "white";
     strong1.textContent = `${Cores.block}`;
     div1.append(span1, strong1);
     div.append(div1);
@@ -154,7 +154,7 @@ export const tableCoreLaunchesid = async (Cores) => {
     let h3 = document.createElement("h3");
     h3.style.fontSize = "32px"; 
     h3.style.color = "white";
-    h3.textContent = "Capsule Launches";
+    h3.textContent = "Lanzamientos de capsula";
     let hr = document.createElement("hr");
     let div = document.createElement("div");
     div.classList.add("table__container__1");
@@ -235,8 +235,8 @@ export const tableCapsulesLaunches = async (Capsules) => {
     information__table__1.innerHTML = "";
     let h3 = document.createElement("h3");
     h3.style.fontSize = "32px"; // Aumenta el tamaño de fuente del título a 32 píxeles
-    h3.style.color = "red";
-    h3.textContent = "Capsule Launches";
+    h3.style.color = "white";
+    h3.textContent = "Lanzamientos de capsula";
     let hr = document.createElement("hr");
     let div = document.createElement("div");
     div.classList.add("table__container__1");
@@ -257,7 +257,7 @@ export const tableCapsulesserial = async (Capsules) => {
     information__table__1.innerHTML = "";
     let h3 = document.createElement("h3");
     h3.style.fontSize = "25px"; 
-    h3.style.color = "red";
+    h3.style.color = "white";
     h3.textContent = "Capsule Serial";
     let hr = document.createElement("hr");
     let div = document.createElement("div");
@@ -281,7 +281,7 @@ export const tableCoresLaunchesland = async (Land) => {
     information__table__1.innerHTML = "";
     let h3 = document.createElement("h3");
     h3.style.fontSize = "22px"; 
-    h3.style.color = "red";
+    h3.style.color = "white";
     h3.textContent = "LANDPADS ID";
     let hr = document.createElement("hr");
     let div = document.createElement("div");
@@ -289,11 +289,11 @@ export const tableCoresLaunchesland = async (Land) => {
     let div1 = document.createElement("div");
     let span1 = document.createElement("span");
     span1.style.fontSize = "14px";
-    span1.style.color = "blue";
-    span1.textContent = "N° ID";
+    span1.textContent = "Numero de ID";
+    span1.style.color = "white";
     let strong1 = document.createElement("strong");
     strong1.style.fontSize = "14px"; 
-    strong1.style.color = "green";
+    strong1.style.color = "white";
     strong1.textContent = `${Land.id}`;
     div1.append(span1, strong1);
     div.append(div1);
@@ -362,7 +362,7 @@ export const tableLaunchesColum1 = async (Launch)=>{
     // 
     let div1 = document.createElement("div");
     let span1 = document.createElement("span");
-    span1.textContent = "date_utc"
+    span1.textContent = "Fecha utc"
     let strong1 = document.createElement("strong");
     strong1.textContent = `${Launch.date_utc}`
     div1.append(span1, strong1)
@@ -370,7 +370,7 @@ export const tableLaunchesColum1 = async (Launch)=>{
     // 
     let div2 = document.createElement("div");
     let span2 = document.createElement("span");
-    span2.textContent = "date_unix"
+    span2.textContent = "Fecha unix"
     let strong2 = document.createElement("strong");
     strong2.textContent = `${Launch.date_unix}`
     div2.append(span2, strong2)
@@ -378,7 +378,7 @@ export const tableLaunchesColum1 = async (Launch)=>{
     // 
     let div3 = document.createElement("div");
     let span3 = document.createElement("span");
-    span3.textContent = "date_local"
+    span3.textContent = "Hora local"
     let strong3 = document.createElement("strong");
     strong3.textContent = `${Launch.date_local}`
     div3.append(span3, strong3)
@@ -386,7 +386,7 @@ export const tableLaunchesColum1 = async (Launch)=>{
     // 
     let div4 = document.createElement("div");
     let span4 = document.createElement("span");
-    span4.textContent = "date_precision"
+    span4.textContent = "Presicion de la hora"
     let strong4 = document.createElement("strong");
     strong4.textContent = `${Launch.date_precision}`
     div4.append(span4, strong4)
@@ -394,7 +394,7 @@ export const tableLaunchesColum1 = async (Launch)=>{
     // 
     let div5 = document.createElement("div");
     let span5 = document.createElement("span");
-    span5.textContent = "upcoming"
+    span5.textContent = "próximo"
     let strong5 = document.createElement("strong");
     strong5.textContent = `${Launch.upcoming}`
     div5.append(span5, strong5)

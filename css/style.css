@@ -116,7 +116,6 @@ aside {
 }
 
 .information__table__1 {
-    width: 85%;
     margin: 10px auto;
     /* background: darkblue; */
     grid-area: table__colum__1;
@@ -153,7 +152,6 @@ aside {
 }
 
 .information__table__2 {
-    width: 85%;
     margin: 10px auto;
     /* background: darkblue; */
     grid-area: table__colum__2;

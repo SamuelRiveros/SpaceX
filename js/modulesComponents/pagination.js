@@ -65,7 +65,6 @@ import {
 
 import { 
     informationRockets,
-    informationLaunchCostRocket,
     informationFirstFlightRocket,
     informationWebRocket,
     informationFirstFlightCrews,
@@ -73,7 +72,6 @@ import {
     informationCoreLastUpdate,
     informationCoresStatus,
     informationDragons,
-    informationLaunchCostDragons,
     informationFirstFlightDragons,
     informationWebDragons,
     informationCapsuleStatus,
@@ -94,12 +92,8 @@ import {
     informationArticle,
     informationDate,
     informationDate2,
-    informationAttemptLaunch,
-    informationSuccesesLaunch,
     informationDetailsLaunches,
     informationArticleLaunc,
-    informationVideoLaunc,
-    informationWikiLaunc,
     imformationSuccessLaunch,
     imformationIdLaunch,
     informationParchLaunch,
@@ -229,7 +223,6 @@ const getRocketsId = async(e)=>{
 
     await nameRockets(Rocket.name)
     await informationRockets(Rocket.country, Rocket.description)
-    await informationLaunchCostRocket(Rocket.cost_per_launch)
     await informationFirstFlightRocket(Rocket.first_flight)
     await informationWebRocket(Rocket.wikipedia)
 
@@ -449,7 +442,6 @@ const getDragonsId = async(e)=>{
     await informDragonData();
     await tableDragonColumn1(Dragons)
     await informationDragons(Dragons)
-    await informationLaunchCostDragons(Dragons)
     await informationFirstFlightDragons(Dragons)
     await informationWebDragons(Dragons)
 }
@@ -652,8 +644,6 @@ const getLaunchpadsId = async(e)=>{
     await informationDetails(Launchpads.details)
 
     await tableLandColum1(Launchpads)
-    await informationAttemptLaunch(Launchpads.launch_attempts)
-    await informationSuccesesLaunch(Launchpads.launch_successes)
     
 }
 
@@ -819,8 +809,6 @@ const getLaunchesId = async(e)=>{
     await imformationLaunchesImg(Launch.links.flickr.original[0])
     await informationDetailsLaunches(Launch.details)
     await imformationSuccessLaunch(Launch.success)
-    await informationWikiLaunc(Launch.links.wikipedia)
-    await informationVideoLaunc(Launch.links.webcast)
     await informationArticleLaunc(Launch.links.article)
     await imformationIdLaunch(Launch.id)
     

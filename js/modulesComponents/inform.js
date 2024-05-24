@@ -80,15 +80,7 @@ export const informDragonLaunchPayloadMass = async (launch_payload_mass) => {
     div.classList.add("carousel__item");
     let divFirst = document.createElement('div');
     divFirst.classList.add("item__progress__bar");
-    let color = '';
-    if (percentage < 30) {
-        color = 'red';
-    } else if (percentage < 70) {
-        color = 'orange';
-    } else {
-        color = 'blue';
-    }
-    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(${color} ${percentage}%, transparent 0)`;
+    divFirst.style = `background: radial-gradient(closest-side 85%, transparent 85% 100%), conic-gradient( ${percentage}%, transparent 0)`;
     let divFirstChildren = document.createElement('div');
     divFirstChildren.classList.add("progress__value");
     let strong = document.createElement('strong');
@@ -126,8 +118,7 @@ export const informDragonData = async () => {
     divFirst.classList.add("item__progress__bar");
 
     let percentage = (totalDragons * 100) / totalDragons;
-    let color = 'blue';
-    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(${color} ${percentage}%, transparent 0)`;
+    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient( ${percentage}%, transparent 0)`;
     let divFirstChildren = document.createElement('div');
     divFirstChildren.classList.add("progress__value");
     let strong = document.createElement('strong');
@@ -150,8 +141,7 @@ export const informDragonData = async () => {
     divFirst = document.createElement('div');
     divFirst.classList.add("item__progress__bar");
     percentage = (activeDragons * 100) / totalDragons;
-    color = 'orange';
-    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(${color} ${percentage}%, transparent 0)`;
+    divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient( ${percentage}%, transparent 0)`;
     divFirstChildren = document.createElement('div');
     divFirstChildren.classList.add("progress__value");
     strong = document.createElement('strong');
